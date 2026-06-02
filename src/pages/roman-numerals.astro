@@ -1,0 +1,195 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+function toRoman(n: number): string {
+  const vals = [1000,900,500,400,100,90,50,40,10,9,5,4,1];
+  const syms = ['M','CM','D','CD','C','XC','L','XL','X','IX','V','IV','I'];
+  let result = '';
+  for(let i=0;i<vals.length;i++){
+    while(n>=vals[i]){result+=syms[i];n-=vals[i];}
+  }
+  return result;
+}
+
+const special = [1,4,5,9,10,40,50,90,100,400,500,900,1000];
+
+// Pre-generate all roman numeral pairs for the table (avoids nested map issues)
+const romanRows: {n: number; r: string}[][] = [];
+for(let row = 0; row < 20; row++) {
+  const rowData: {n: number; r: string}[] = [];
+  for(const offset of [0,20,40,60,80]) {
+    const n = offset + row + 1;
+    if(n <= 100) rowData.push({n, r: toRoman(n)});
+    else rowData.push({n: 0, r: ''});
+  }
+  romanRows.push(rowData);
+}
+
+// 100-1000 milestones
+const milestones = [100,150,200,250,300,350,400,450,500,550,600,650,700,750,800,850,900,950,1000];
+const milestoneData = milestones.map(n => ({n, r: toRoman(n)}));
+---
+
+<Layout
+  title="Roman Numbers 1 to 1000 — Roman Numeral Chart IV, IX, XL, CM | MathsIsCool"
+  description="Roman numbers 1 to 1000 chart. What number is IV, IX, XL in Roman numerals? Roman numbers 1 to 100 with names, plus conversion rules and FAQ."
+  currentPage="roman"
+>
+<div class="page">
+
+  <div class="page-hero">
+    <div style="font-size:3rem;margin-bottom:8px;">Ⅰ 🦋</div>
+    <h1 class="c-roman">Roman Numbers 1 to 1000 — Complete Chart &amp; Guide</h1>
+    <p>Complete Roman numeral chart with conversion rules — from I to M!</p>
+    <div class="page-color-bar" style="background:var(--color-roman);"></div>
+  </div>
+
+  <div class="owl-tip">
+    <picture><source srcset="/images/owl-main.webp" type="image/webp" /><img src="/images/owl-main-opt.png" alt="Professor Hoot" class="owl-tip-img" width="56" height="56" loading="lazy" /></picture>
+    <div class="owl-tip-content">
+      <strong>🦉 Professor Hoot Says:</strong>
+      <p>The 13 key Roman numeral symbols: I=1, V=5, X=10, L=50, C=100, D=500, M=1000 — plus IV=4, IX=9, XL=40, XC=90, CD=400, CM=900. Learn these 13 and you can write ANY number!</p>
+    </div>
+  </div>
+
+  <!-- Basic Symbols -->
+  <h2 style="font-family:'Nunito',sans-serif;font-size:1.2rem;font-weight:900;margin-bottom:16px;">
+    📋 Basic Roman Numeral Symbols
+  </h2>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px;">
+    {special.map(n => (
+      <div style="background:var(--color-roman);color:white;border-radius:12px;padding:12px 16px;text-align:center;font-family:'Nunito',sans-serif;font-weight:800;min-width:70px;box-shadow:0 4px 12px rgba(8,145,178,0.3);">
+        <div style="font-size:1.3rem">{toRoman(n)}</div>
+        <div style="font-size:0.85rem;opacity:0.9;margin-top:4px">= {n}</div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Rules -->
+  <h2 style="font-family:'Nunito',sans-serif;font-size:1.2rem;font-weight:900;margin-bottom:16px;">
+    📖 How Roman Numerals Work
+  </h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-bottom:32px;">
+    {[
+      {rule:'Add Left to Right', ex:'VII = 5+1+1 = 7', color:'#059669'},
+      {rule:'Subtract Smaller Before Larger', ex:'IV = 5-1 = 4', color:'#DC2626'},
+      {rule:'No More Than 3 in a Row', ex:'XXX = 30, but 40 = XL', color:'#D97706'},
+      {rule:'Only I, X, C, M can repeat', ex:'VV is wrong — use X instead', color:'#7C3AED'},
+    ].map(r => (
+      <div style={`background:${r.color}10;border:2px solid ${r.color}30;border-radius:10px;padding:14px;`}>
+        <div style={`font-family:'Nunito',sans-serif;font-weight:800;color:${r.color};font-size:0.9rem;margin-bottom:4px;`}>{r.rule}</div>
+        <div style="font-family:'Courier New',monospace;font-size:0.88rem;color:var(--text-2);">{r.ex}</div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Full Table 1-100 (pre-computed, no nested maps) -->
+  <h2 style="font-family:'Nunito',sans-serif;font-size:1.2rem;font-weight:900;margin-bottom:16px;">
+    📊 Roman Numerals 1 to 100
+  </h2>
+  <div class="math-table-wrap" style="--table-color: var(--color-roman);">
+    <table class="math-table">
+      <thead>
+        <tr>
+          <th>#</th><th>Roman</th>
+          <th>#</th><th>Roman</th>
+          <th>#</th><th>Roman</th>
+          <th>#</th><th>Roman</th>
+          <th>#</th><th>Roman</th>
+        </tr>
+      </thead>
+      <tbody>
+        {romanRows.map(row => (
+          <tr>
+            {row.map(cell => cell.n > 0 ? (
+              <>
+                <td class="num-cell" style="--table-color:var(--color-roman)">{cell.n}</td>
+                <td style="font-weight:800;color:var(--color-roman);font-family:'Courier New',monospace">{cell.r}</td>
+              </>
+            ) : (
+              <><td></td><td></td></>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 100 to 1000 -->
+  <h2 style="font-family:'Nunito',sans-serif;font-size:1.2rem;font-weight:900;margin:32px 0 16px;">
+    📊 Key Values: 100 to 1000
+  </h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;margin-bottom:40px;">
+    {milestoneData.map(m => (
+      <div style="background:var(--surface);border:2px solid var(--color-roman)30;border-radius:10px;padding:10px;text-align:center;font-family:'Nunito',sans-serif;">
+        <div style="font-weight:800;color:var(--color-roman);font-size:1rem;font-family:'Courier New',monospace;">{m.r}</div>
+        <div style="font-size:0.82rem;color:var(--text-2);margin-top:2px">= {m.n}</div>
+      </div>
+    ))}
+  </div>
+
+  <!-- SEO -->
+  <div class="seo-content">
+    <h2>Roman Numerals — Complete Guide</h2>
+    <p>Roman numerals use seven letters from the Latin alphabet to represent numbers: I (1), V (5), X (10), L (50), C (100), D (500), and M (1000). The system was used throughout the Roman Empire and remains in use today for clock faces, book chapters, movie sequels, year numbering, and formal documents.</p>
+
+    <h3>The Subtractive Principle</h3>
+    <p>When a smaller numeral appears before a larger one, it is subtracted. Only six subtractive combinations are valid: IV=4, IX=9, XL=40, XC=90, CD=400, CM=900. All other numbers are additive — VII = 5+1+1 = 7, XII = 10+1+1 = 12.</p>
+
+    <h3>Roman Numerals in Daily Life</h3>
+    <p>Roman numerals appear on clock faces (XII for 12), Super Bowl numbers (Super Bowl LVIII), Olympic Games, film sequels (Rocky IV), copyright years in movies, chapter numbers in books, and formal outlines. Understanding them is a practical life skill!</p>
+
+    <h3>Quick Conversion Tips</h3>
+    <p>To convert to Roman numerals, break the number into thousands, hundreds, tens, and units. For 1994: 1000=M, 900=CM, 90=XC, 4=IV → MCMXCIV. For 2024: 2000=MM, 20=XX, 4=IV → MMXXIV.</p>
+
+    <div class="faq-section">
+      <h2 style="margin-bottom:16px;">Roman Numerals — FAQ</h2>
+            {[
+        ['What number is IV in Roman numerals?','IV = 4. The letter I (1) placed before V (5) means subtract: 5 − 1 = 4. IV is the standard way to write 4 in Roman numerals.'],
+        ['What number is IX in Roman numerals?','IX = 9. The letter I (1) placed before X (10) means subtract: 10 − 1 = 9. IX is the standard way to write 9.'],
+        ['What number is XL in Roman numerals?','XL = 40. X (10) placed before L (50) means subtract: 50 − 10 = 40.'],
+        ['What number is XC in Roman numerals?','XC = 90. X (10) placed before C (100) means subtract: 100 − 10 = 90.'],
+        ['What number is XIV in Roman numerals?','XIV = 14. X(10) + IV(4) = 14.'],
+        ['What number is XIX in Roman numerals?','XIX = 19. X(10) + IX(9) = 19.'],
+        ['What number is XLIII in Roman numerals?','XLIII = 43. XL(40) + III(3) = 43.'],
+        ['What number is VIII in Roman numerals?','VIII = 8. V(5) + III(3) = 8.'],
+        ['What number is VII in Roman numerals?','VII = 7. V(5) + II(2) = 7.'],
+        ['What number is LIV in Roman numerals?','LIV = 54. L(50) + IV(4) = 54.'],
+        ['What number is M in Roman numerals?','M = 1000. M comes from the Latin word "mille" meaning thousand.'],
+        ['What number is C in Roman numerals?','C = 100. C comes from the Latin word "centum" meaning hundred — the same root as "century".'],
+        ['What are Roman numbers 1 to 10?','I=1, II=2, III=3, IV=4, V=5, VI=6, VII=7, VIII=8, IX=9, X=10.'],
+        ['What is 2024 in Roman numerals?','2024 = MMXXIV. Breaking it down: MM=2000, XX=20, IV=4.'],
+        ['What is 50 in Roman numerals?','50 = L. The letter L represents 50 in Roman numerals.'],
+        ['What is 500 in Roman numerals?','500 = D. The letter D represents 500 in Roman numerals.'],
+        ['How to write 1 to 100 in Roman numerals?','The key milestone values are: I=1, V=5, X=10, L=50, C=100. Using subtractive notation (IV=4, IX=9, XL=40, XC=90) you can build any number 1 to 100. Our complete chart above shows every value.'],
+      ].map(([q,a]) => (
+        <div class="faq-item">
+          <div class="faq-q"><span>{q}</span><span class="faq-icon">▾</span></div>
+          <div class="faq-a">{a}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+
+  <!-- Internal Links -->
+  <div style="background:var(--surface);border:2px solid var(--border);border-radius:var(--radius);padding:24px;margin:32px 0;">
+    <div style="font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;margin-bottom:16px;">📚 Related Topics on MathsIsCool</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <a href="/prime-numbers" style="background:var(--color-prime);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">🔢 Prime Numbers →</a>
+      <a href="/multiplication-tables" style="background:var(--color-tables);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">✖️ Times Tables →</a>
+      <a href="/squares-cubes" style="background:var(--color-squares);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">² Squares & Cubes →</a>
+      <a href="/blog/roman-numerals-guide" style="background:var(--owl-brown);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">📚 Roman Numerals Guide →</a>
+    </div>
+  </div>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"What is 2024 in Roman numerals?","acceptedAnswer":{"@type":"Answer","text":"2024 = MMXXIV. MM=2000, XX=20, IV=4."}},
+  {"@type":"Question","name":"What is 1000 in Roman numerals?","acceptedAnswer":{"@type":"Answer","text":"1000 = M, from the Latin word mille meaning thousand."}},
+  {"@type":"Question","name":"Why is 4 written as IV and not IIII?","acceptedAnswer":{"@type":"Answer","text":"The subtractive principle makes IV the standard form. However IIII still appears on many clock faces for visual balance."}},
+  {"@type":"Question","name":"What is 100 in Roman numerals?","acceptedAnswer":{"@type":"Answer","text":"100 = C, from the Latin centum meaning hundred."}}
+]}
+</script>
+</Layout>

@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+const nums = Array.from({length: 50}, (_, i) => i + 1);
+---
+<Layout title="Square Root Table 1 to 100 — Cube Roots 1 to 50 | MathsIsCool" description="Square root table 1 to 100 with exact values. Cube roots 1 to 50, perfect cube roots list, and answers to what is the square root of 2, 3, 5, 64, 144 and more." currentPage="roots">
+<div class="page">
+  <div class="page-hero">
+    <div style="font-size:3rem;margin-bottom:8px;">√ 🦊</div>
+    <h1 class="c-roots">Square Roots & Cube Roots</h1>
+    <p>Square root table with exact values and decimals. Cube roots 1 to 50, perfect square roots list, and answers to every <em>what is the square/cube root of X</em> question.</p>
+    <div class="page-color-bar" style="background:var(--color-roots);"></div>
+  </div>
+  <div class="owl-tip">
+    <picture><source srcset="/images/owl-main.webp" type="image/webp" /><img src="/images/owl-main-opt.png" alt="Professor Hoot" class="owl-tip-img" width="56" height="56" loading="lazy" /></picture>
+    <div class="owl-tip-content">
+      <strong>🦉 Professor Hoot Says:</strong>
+      <p>Perfect square roots are exact whole numbers: √1=1, √4=2, √9=3, √16=4, √25=5... Learn these 7 perfect squares up to 50: 1,4,9,16,25,36,49. All others are irrational!</p>
+    </div>
+  </div>
+  <div class="math-table-wrap" style="--table-color: var(--color-roots);">
+    <table class="math-table">
+      <thead>
+        <tr><th>n</th><th>√n (Square Root)</th><th>Type</th><th>∛n (Cube Root)</th><th>Type</th></tr>
+      </thead>
+      <tbody>
+        {nums.map(n => {
+          const sq = Math.sqrt(n);
+          const cb = Math.cbrt(n);
+          const isPerfSq = Number.isInteger(sq);
+          const isPerfCb = Number.isInteger(cb);
+          return (
+            <tr>
+              <td class="num-cell" style="--table-color:var(--color-roots)">{n}</td>
+              <td style={`font-weight:700;color:${isPerfSq?'var(--color-roots)':'var(--text)'}`}>
+                {isPerfSq ? sq.toString() : sq.toFixed(4)}
+              </td>
+              <td><span style={`font-size:0.75rem;padding:2px 8px;border-radius:100px;background:${isPerfSq?'var(--color-roots)':'var(--border)'};color:${isPerfSq?'white':'var(--text-2)'};font-family:'Nunito',sans-serif;font-weight:700`}>{isPerfSq?'Perfect':'Irrational'}</span></td>
+              <td style={`font-weight:700;color:${isPerfCb?'var(--color-tables)':'var(--text)'}`}>
+                {isPerfCb ? cb.toString() : cb.toFixed(4)}
+              </td>
+              <td><span style={`font-size:0.75rem;padding:2px 8px;border-radius:100px;background:${isPerfCb?'var(--color-tables)':'var(--border)'};color:${isPerfCb?'white':'var(--text-2)'};font-family:'Nunito',sans-serif;font-weight:700`}>{isPerfCb?'Perfect':'Irrational'}</span></td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  </div>
+  <div class="seo-content">
+    <h2>Square Roots and Cube Roots 1 to 50</h2>
+    <p>The <strong>square root</strong> of a number n is a value that, when multiplied by itself, gives n. Written as √n. The <strong>cube root</strong> is a value that when multiplied by itself three times gives n. Written as ∛n.</p>
+    <h3>Perfect Squares 1 to 50</h3>
+    <p>The perfect squares between 1 and 50 are: 1, 4, 9, 16, 25, 36, 49. Their square roots are exact whole numbers (1,2,3,4,5,6,7). All other numbers between 1 and 50 have irrational square roots — infinite non-repeating decimals.</p>
+    <h3>Perfect Cubes 1 to 50</h3>
+    <p>The perfect cubes between 1 and 50 are: 1, 8, 27. Their cube roots are 1, 2, and 3. The next perfect cube after 50 is 64 (4³).</p>
+    <div class="faq-section">
+      <h2 style="margin-bottom:16px;">Roots — FAQ</h2>
+      {[
+        ['What is the square root of 2?','√2 = 1.4142... It is an irrational number — its decimal goes on forever without repeating. It was one of the first numbers proven to be irrational in ancient Greece.'],
+        ['How do I estimate square roots without a calculator?','Find the two perfect squares it sits between. For √20: 16<20<25, so 4<√20<5. Since 20 is closer to 16 than 25, estimate ≈ 4.4-4.5. Actual value: 4.472.'],
+        ['What is the cube root of 27?','∛27 = 3, because 3×3×3 = 27. This is a perfect cube.'],
+        ['Why are most square roots irrational?','Because most integers are not perfect squares. The ratio of perfect squares to all integers becomes vanishingly small — only 1, 4, 9, 16, 25, 36, 49... are perfect squares, and they become increasingly rare.'],
+      ].map(([q,a]) => (
+        <div class="faq-item">
+          <div class="faq-q"><span>{q}</span><span class="faq-icon">▾</span></div>
+          <div class="faq-a">{a}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Internal Links -->
+  <div style="background:var(--surface);border:2px solid var(--border);border-radius:var(--radius);padding:24px;margin:32px 0;">
+    <div style="font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;margin-bottom:16px;">📚 Related Topics on MathsIsCool</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <a href="/squares-cubes" style="background:var(--color-squares);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">² Squares & Cubes →</a>
+      <a href="/multiplication-tables" style="background:var(--color-tables);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">✖️ Times Tables →</a>
+      <a href="/algebra-identities" style="background:var(--color-algebra);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">📐 Algebra →</a>
+      <a href="/differentiation" style="background:var(--color-diff);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">d/dx Differentiation →</a>
+    </div>
+  </div>
+</div>
+</Layout>

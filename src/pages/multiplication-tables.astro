@@ -1,0 +1,189 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Generate tables 1-50
+const tables = Array.from({length: 50}, (_, i) => i + 1);
+const colors = [
+  '#7C3AED','#2563EB','#059669','#D97706','#DC2626',
+  '#DB2777','#0891B2','#65A30D','#EA580C','#7C3AED',
+];
+---
+
+<Layout
+  title="Maths Tables 1 to 50 — Multiplication Tables Chart | MathsIsCool"
+  description="Free maths tables 1 to 50. Colourful multiplication tables chart covering times tables 1-20, dodging tables and tricks. Perfect for CBSE, GCSE and competitive exams."
+  currentPage="tables"
+>
+
+<div class="page">
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div style="font-size:3rem;margin-bottom:8px;">✖️ 🐰</div>
+    <h1 class="c-tables">Maths Tables 1 to 50 — Times Tables Chart</h1>
+    <p>The most complete <strong>maths tables</strong> reference online — multiplication tables from 1 to 50, colourful charts, dodging tables and tricks. Perfect for kids, students and competitive exam prep.</p>
+    <div class="page-color-bar" style="background:var(--color-tables);"></div>
+  </div>
+
+  <!-- Owl Tip -->
+  <div class="owl-tip">
+    <picture><source srcset="/images/owl-main.webp" type="image/webp" /><img src="/images/owl-main-opt.png" alt="Professor Hoot" class="owl-tip-img" width="56" height="56" loading="lazy" /></picture>
+    <div class="owl-tip-content">
+      <strong>🦉 Professor Hoot Says:</strong>
+      <p>Learning your times tables up to 20 will save you hours in exams! Start with 2, 5, and 10 — they're the easiest. Then tackle 3, 4, and 6. Save 7, 8, and 9 for last — they're the tricky ones!</p>
+    </div>
+  </div>
+
+  <!-- Quick Jump -->
+  <div style="background:var(--surface);border:2px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:28px;box-shadow:var(--shadow);">
+    <div style="font-family:'Nunito',sans-serif;font-weight:800;font-size:0.85rem;color:var(--text-2);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px;">
+      ⚡ Jump to any table:
+    </div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;">
+      {tables.map(n => (
+        <a
+          href={`#table-${n}`}
+          class="jump-link"
+          style={`--jc:${colors[(n-1)%10]};background:${colors[(n-1)%10]}15;color:${colors[(n-1)%10]};border:1.5px solid ${colors[(n-1)%10]}40;`}
+        >
+          {n}
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <!-- All Tables -->
+  <div class="tables-grid">
+    {tables.map(n => {
+      const color = colors[(n-1) % 10];
+      return (
+        <div id={`table-${n}`} class="table-card" style={`--card-color: ${color}`}>
+          <div class="table-card-header">
+            Table of {n}
+          </div>
+          <div class="table-card-body">
+            {Array.from({length:10}, (_,i) => i+1).map(m => (
+              <div class="table-row">
+                <span style="color:var(--text-2)">{n} × {m}</span>
+                <span style="margin:0 4px;color:var(--text-2)">=</span>
+                <span class="result">{n * m}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    })}
+  </div>
+
+  <!-- Full Reference Table -->
+  <h2 style="font-family:'Nunito',sans-serif;font-size:1.3rem;font-weight:900;margin:40px 0 16px;">
+    📊 Complete Multiplication Chart (1–20 × 1–20)
+  </h2>
+  <div class="math-table-wrap" style="--table-color: var(--color-tables);">
+    <table class="math-table">
+      <thead>
+        <tr>
+          <th>×</th>
+          {Array.from({length:10}, (_,i)=>i+1).map(n => <th>{n}</th>)}
+        </tr>
+      </thead>
+      <tbody>
+        {Array.from({length:20}, (_,i)=>i+1).map(row => (
+          <tr>
+            <td class="num-cell" style="--table-color:var(--color-tables)">{row}</td>
+            {Array.from({length:10}, (_,i)=>i+1).map(col => (
+              <td>{row * col}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SEO Content -->
+  <div class="seo-content">
+    <h2>Multiplication Tables 1 to 50 — Complete Reference Guide</h2>
+    <p>
+      A strong knowledge of multiplication tables is the single most important foundation in mathematics.
+      Every area of math — from fractions and percentages to algebra, geometry, and calculus — builds upon
+      the ability to multiply quickly and accurately. MathsIsCool's <strong>times tables 1 to 50</strong> is
+      the most comprehensive free multiplication reference available online.
+    </p>
+
+    <h3>Why Learn Times Tables Up to 50?</h3>
+    <p>
+      While most schools teach multiplication tables up to 12 or 20, students preparing for competitive
+      examinations benefit greatly from knowing tables further. <strong>Bank PO, SSC CGL, GMAT, CAT,
+      GRE</strong> and other competitive tests involve rapid mental calculations where knowing tables up to
+      30 or 50 saves critical seconds. Our <strong>table of 13 to 50</strong> fills the gap that most
+      websites leave empty.
+    </p>
+
+    <h3>Tips to Memorize Multiplication Tables Fast</h3>
+    <p>
+      <strong>Start with easy tables:</strong> 1, 2, 5, and 10 follow simple patterns. Table of 2 is
+      just doubling; table of 10 adds a zero; table of 5 alternates between 5 and 0 in the units digit.
+    </p>
+    <p>
+      <strong>Use symmetry:</strong> 3 × 7 = 7 × 3. Once you know table of 3 up to 7, you already
+      know the first 3 entries of table of 7.
+    </p>
+    <p>
+      <strong>Practice daily:</strong> 10 minutes of daily practice for 4 weeks will make tables up to
+      20 feel automatic. Use our printable reference below each table for offline practice.
+    </p>
+    <p>
+      <strong>Break large tables into chunks:</strong> For table of 23, think 23×4=92 (20×4 + 3×4),
+      and build from there. Mental math becomes easy when you break numbers apart.
+    </p>
+
+    <h3>Multiplication Tables for Competitive Exams</h3>
+    <p>
+      For students appearing in <strong>CBSE Class 10 board exams</strong>, tables up to 20 are essential.
+      For <strong>competitive exams</strong> like SSC, IBPS, CAT, XAT, and GMAT, tables up to 30 save
+      significant time. <strong>JEE and NEET</strong> aspirants benefit from quick recall of tables up to
+      20 for calculation-heavy problems. Our <strong>multiplication table chart</strong> covers all of these.
+    </p>
+
+    <!-- FAQ -->
+    <div class="faq-section">
+      <h2 style="margin-bottom:16px;">Times Tables — FAQ</h2>
+      {[
+        ['What are the multiplication tables 1 to 50?','The multiplication tables 1 to 50 list the products of each number from 1 to 50 multiplied by numbers 1 through 10 (or sometimes 1 to 20). For example, table of 15: 15×1=15, 15×2=30, 15×3=45... up to 15×10=150.'],
+        ['Which tables should I memorize first?','Start with tables 1, 2, 5, and 10 — these have clear patterns. Then learn 3, 4, 6, and 9. The 9-table has a useful trick: digits always add up to 9. Finally, tackle 7 and 8, which are the most random.'],
+        ['How long does it take to learn tables 1 to 20?','With 10–15 minutes of daily practice, most students can confidently recall tables 1 to 20 within 4–6 weeks. Consistency matters more than intensity — short daily sessions beat occasional long sessions.'],
+        ['Are multiplication tables used in higher math?','Absolutely. Mental multiplication is used throughout algebra (factoring), fractions (finding LCM/HCF), percentage calculations, geometry (area calculations), and even calculus problems with numerical answers.'],
+        ['What is the table of 13?','Table of 13: 13×1=13, 13×2=26, 13×3=39, 13×4=52, 13×5=65, 13×6=78, 13×7=91, 13×8=104, 13×9=117, 13×10=130.'],
+      ].map(([q,a]) => (
+        <div class="faq-item">
+          <div class="faq-q"><span>{q}</span><span class="faq-icon">▾</span></div>
+          <div class="faq-a">{a}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+
+  <!-- Internal Links — Related Topics -->
+  <div style="background:var(--surface);border:2px solid var(--border);border-radius:var(--radius);padding:24px;margin:32px 0;">
+    <div style="font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;margin-bottom:16px;">📚 Related Topics on MathsIsCool</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <a href="/squares-cubes" style="background:var(--color-squares);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">² Squares & Cubes →</a>
+      <a href="/square-roots" style="background:var(--color-roots);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">√ Square Roots →</a>
+      <a href="/blog/times-table-tricks" style="background:var(--owl-brown);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">🪄 Times Table Tricks →</a>
+      <a href="/blog/how-to-learn-multiplication-tables-fast" style="background:var(--owl-brown);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">📚 Learn Tables Fast →</a>
+      <a href="/prime-numbers" style="background:var(--color-prime);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">🔢 Prime Numbers →</a>
+    </div>
+  </div>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"What are the multiplication tables 1 to 50?","acceptedAnswer":{"@type":"Answer","text":"Multiplication tables 1 to 50 list the products of each number from 1 to 50 multiplied by 1 through 10. For example, table of 15: 15×1=15, 15×2=30... up to 15×10=150."}},
+  {"@type":"Question","name":"Which multiplication tables should I memorize first?","acceptedAnswer":{"@type":"Answer","text":"Start with 1, 2, 5, and 10 — these have clear patterns. Then learn 3, 4, 6, and 9. Finally tackle 7 and 8, which are the most challenging."}},
+  {"@type":"Question","name":"How long does it take to learn tables 1 to 20?","acceptedAnswer":{"@type":"Answer","text":"With 10-15 minutes of daily practice, most students can confidently recall tables 1 to 20 within 4-6 weeks."}},
+  {"@type":"Question","name":"What is the table of 13?","acceptedAnswer":{"@type":"Answer","text":"Table of 13: 13×1=13, 13×2=26, 13×3=39, 13×4=52, 13×5=65, 13×6=78, 13×7=91, 13×8=104, 13×9=117, 13×10=130."}}
+]}
+</script>
+
+</Layout>

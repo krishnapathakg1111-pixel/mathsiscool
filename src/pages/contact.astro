@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Contact MathsIsCool — Get in Touch" description="Contact the MathsIsCool team. Report errors, suggest content, or ask questions about our free math reference site." currentPage="">
+<div class="page">
+  <div class="page-hero"><h1>Contact <span style="color:var(--owl-brown)">Us</span> 🦉</h1><p>Found an error? Have a suggestion? Professor Hoot is listening!</p></div>
+  <div style="max-width:520px;margin:0 auto 48px;">
+    <div style="background:var(--surface);border:2px solid var(--border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);">
+      <form id="cf" style="display:flex;flex-direction:column;gap:14px;">
+        <div><label style="display:block;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.82rem;color:var(--text-2);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">Your Name</label>
+        <input type="text" required placeholder="Your name" style="width:100%;background:var(--bg-2);border:2px solid var(--border);border-radius:8px;padding:10px 14px;color:var(--text);font-size:0.9rem;outline:none;font-family:'Poppins',sans-serif;" /></div>
+        <div><label style="display:block;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.82rem;color:var(--text-2);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">Email</label>
+        <input type="email" required placeholder="your@email.com" style="width:100%;background:var(--bg-2);border:2px solid var(--border);border-radius:8px;padding:10px 14px;color:var(--text);font-size:0.9rem;outline:none;font-family:'Poppins',sans-serif;" /></div>
+        <div><label style="display:block;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.82rem;color:var(--text-2);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">Message</label>
+        <textarea rows="5" required placeholder="Your message..." style="width:100%;background:var(--bg-2);border:2px solid var(--border);border-radius:8px;padding:10px 14px;color:var(--text);font-size:0.9rem;outline:none;resize:vertical;font-family:'Poppins',sans-serif;"></textarea></div>
+        <button type="submit" style="background:var(--owl-brown);color:white;border:none;border-radius:100px;padding:12px 24px;font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;cursor:pointer;">Send to Professor Hoot 🦉</button>
+        <div id="success" style="display:none;text-align:center;color:var(--color-roots);font-family:'Nunito',sans-serif;font-weight:700;">✅ Message sent! We'll get back to you soon.</div>
+      </form>
+    </div>
+  </div>
+</div>
+</Layout>
+<script>
+document.getElementById('cf')?.addEventListener('submit',(e)=>{e.preventDefault();document.getElementById('success').style.display='block';e.target.reset();});
+</script>

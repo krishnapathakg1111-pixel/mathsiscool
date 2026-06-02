@@ -1,0 +1,200 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const identities = [
+  {
+    category: 'Basic Identities',
+    color: '#D97706',
+    items: [
+      { name: '(a + b)²', expr: '(a + b)² = a² + 2ab + b²', note: 'Square of sum of two terms' },
+      { name: '(a - b)²', expr: '(a - b)² = a² - 2ab + b²', note: 'Square of difference of two terms' },
+      { name: 'a² - b²', expr: 'a² - b² = (a + b)(a - b)', note: 'Difference of squares — factored form' },
+      { name: '(a + b + c)²', expr: '(a + b + c)² = a² + b² + c² + 2ab + 2bc + 2ca', note: 'Square of sum of three terms' },
+    ],
+  },
+  {
+    category: 'Cubic Identities',
+    color: '#7C3AED',
+    items: [
+      { name: '(a + b)³', expr: '(a + b)³ = a³ + 3a²b + 3ab² + b³', note: 'Cube of sum' },
+      { name: '(a - b)³', expr: '(a - b)³ = a³ - 3a²b + 3ab² - b³', note: 'Cube of difference' },
+      { name: 'a³ + b³', expr: 'a³ + b³ = (a + b)(a² - ab + b²)', note: 'Sum of cubes — factored form' },
+      { name: 'a³ - b³', expr: 'a³ - b³ = (a - b)(a² + ab + b²)', note: 'Difference of cubes — factored form' },
+      { name: 'a³+b³+c³-3abc', expr: 'a³+b³+c³-3abc = (a+b+c)(a²+b²+c²-ab-bc-ca)', note: 'Special cubic identity' },
+    ],
+  },
+  {
+    category: 'Sum & Product Identities',
+    color: '#059669',
+    items: [
+      { name: 'a²+b²', expr: 'a²+b² = (a+b)² - 2ab', note: 'Sum of squares in terms of sum and product' },
+      { name: 'a²+b²', expr: 'a²+b² = (a-b)² + 2ab', note: 'Alternative form' },
+      { name: '(a+b)²+(a-b)²', expr: '(a+b)² + (a-b)² = 2(a²+b²)', note: 'Sum of squares identity' },
+      { name: '(a+b)²-(a-b)²', expr: '(a+b)² - (a-b)² = 4ab', note: 'Difference identity' },
+      { name: 'a³+b³', expr: 'a³+b³ = (a+b)³ - 3ab(a+b)', note: 'Sum of cubes via sum and product' },
+      { name: 'a³-b³', expr: 'a³-b³ = (a-b)³ + 3ab(a-b)', note: 'Difference of cubes via difference' },
+    ],
+  },
+  {
+    category: 'Factoring Formulas',
+    color: '#DC2626',
+    items: [
+      { name: 'Perfect Square Trinomial +', expr: 'a²+2ab+b² = (a+b)²', note: 'Recognise by: middle term = 2×√(first)×√(last)' },
+      { name: 'Perfect Square Trinomial -', expr: 'a²-2ab+b² = (a-b)²', note: 'Same rule with negative middle term' },
+      { name: 'Difference of Squares', expr: 'a²-b² = (a+b)(a-b)', note: 'No middle term, subtract two perfect squares' },
+      { name: 'Sum of Cubes', expr: 'a³+b³ = (a+b)(a²-ab+b²)', note: 'Remember: SOAP — Same, Opposite, Always Positive' },
+      { name: 'Difference of Cubes', expr: 'a³-b³ = (a-b)(a²+ab+b²)', note: 'Same rule but starting with minus' },
+    ],
+  },
+  {
+    category: 'Binomial Theorem',
+    color: '#0891B2',
+    items: [
+      { name: '(a+b)⁰', expr: '(a+b)⁰ = 1', note: 'Any expression to power 0 = 1' },
+      { name: '(a+b)¹', expr: '(a+b)¹ = a + b', note: '' },
+      { name: '(a+b)²', expr: '(a+b)² = a² + 2ab + b²', note: '' },
+      { name: '(a+b)³', expr: '(a+b)³ = a³ + 3a²b + 3ab² + b³', note: '' },
+      { name: '(a+b)⁴', expr: '(a+b)⁴ = a⁴ + 4a³b + 6a²b² + 4ab³ + b⁴', note: 'Coefficients from Pascal\'s Triangle: 1,4,6,4,1' },
+      { name: 'General Binomial', expr: '(a+b)ⁿ = Σ C(n,k) × aⁿ⁻ᵏ × bᵏ', note: 'Where C(n,k) = n! / (k!(n-k)!) — combination formula' },
+    ],
+  },
+];
+---
+
+<Layout
+  title="Algebra Identities — All Algebraic Formulas & Maths Identity List | MathsIsCool"
+  description="All algebra identities and maths identity formulas — basic, cubic, factoring, binomial theorem. What are math identities? Class 8, 9, 10 algebraic identities explained."
+  currentPage="algebra"
+>
+<div class="page">
+
+  <div class="page-hero">
+    <div style="font-size:3rem;margin-bottom:8px;">📐 🐸</div>
+    <h1 class="c-algebra">Algebra Identities — Complete Maths Identity List</h1>
+    <p>Every algebraic identity you'll ever need — beautifully organized and easy to remember!</p>
+    <div class="page-color-bar" style="background:var(--color-algebra);"></div>
+  </div>
+
+  <div class="owl-tip">
+    <picture><source srcset="/images/owl-main.webp" type="image/webp" /><img src="/images/owl-main-opt.png" alt="Professor Hoot" class="owl-tip-img" width="56" height="56" loading="lazy" /></picture>
+    <div class="owl-tip-content">
+      <strong>🦉 Professor Hoot Says:</strong>
+      <p>The most important identities to memorize are (a+b)², (a-b)², and a²-b². These three appear in over 70% of algebra problems! Once you know these, the cubic identities follow naturally.</p>
+    </div>
+  </div>
+
+  {identities.map(cat => (
+    <div style="margin-bottom:36px;">
+      <h2 style={`font-family:'Nunito',sans-serif;font-size:1.2rem;font-weight:900;color:${cat.color};margin-bottom:16px;display:flex;align-items:center;gap:10px;`}>
+        <span style={`background:${cat.color}20;border:2px solid ${cat.color}40;border-radius:100px;padding:4px 14px;font-size:0.9rem;`}>
+          {cat.category}
+        </span>
+      </h2>
+      <div class="formula-grid" style={`--formula-color: ${cat.color}`}>
+        {cat.items.map(item => (
+          <div class="formula-card" style={`--formula-color: ${cat.color}`}>
+            <div class="formula-name">{item.name}</div>
+            <div class="formula-expr">{item.expr}</div>
+            {item.note && <div class="formula-note">💡 {item.note}</div>}
+          </div>
+        ))}
+      </div>
+    </div>
+  ))}
+
+  <!-- Quick Reference Table -->
+  <h2 style="font-family:'Nunito',sans-serif;font-size:1.3rem;font-weight:900;margin:40px 0 16px;">
+    📊 Quick Reference Table
+  </h2>
+  <div class="math-table-wrap" style="--table-color: var(--color-algebra);">
+    <table class="math-table">
+      <thead>
+        <tr>
+          <th>Identity</th>
+          <th>Expanded Form</th>
+          <th>Factored Form</th>
+        </tr>
+      </thead>
+      <tbody>
+        {[
+          ['(a+b)²', 'a²+2ab+b²', '(a+b)(a+b)'],
+          ['(a-b)²', 'a²-2ab+b²', '(a-b)(a-b)'],
+          ['a²-b²', '(a+b)(a-b)', 'Difference of squares'],
+          ['(a+b)³', 'a³+3a²b+3ab²+b³', '(a+b)(a+b)(a+b)'],
+          ['(a-b)³', 'a³-3a²b+3ab²-b³', '(a-b)(a-b)(a-b)'],
+          ['a³+b³', '(a+b)(a²-ab+b²)', 'Sum of cubes'],
+          ['a³-b³', '(a-b)(a²+ab+b²)', 'Difference of cubes'],
+        ].map(([id, exp, fac]) => (
+          <tr>
+            <td class="num-cell" style="--table-color:var(--color-algebra);font-family:'Courier New',monospace">{id}</td>
+            <td style="font-family:'Courier New',monospace;font-size:0.85rem">{exp}</td>
+            <td style="font-size:0.85rem;color:var(--text-2)">{fac}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="seo-content">
+    <h2>Algebra Identities — Complete Guide for Students</h2>
+    <p>
+      <strong>Algebraic identities</strong> are equations that hold true for all values of the variables.
+      Unlike equations that are true only for specific values, identities are universally valid. They form
+      the backbone of algebra, enabling simplification, factoring, and solving of complex expressions.
+      Every student from Class 8 onwards needs a thorough understanding of these identities.
+    </p>
+    <h3>Most Important Identities to Memorize</h3>
+    <p>
+      The three most critical identities are: <strong>(a+b)² = a²+2ab+b²</strong>,
+      <strong>(a-b)² = a²-2ab+b²</strong>, and <strong>a²-b² = (a+b)(a-b)</strong>.
+      These appear in quadratic equations, polynomial factoring, mental math shortcuts, and geometric proofs.
+    </p>
+    <h3>How Identities Help in Competitive Exams</h3>
+    <p>
+      In SSC, CAT, GMAT, and banking exams, algebraic identities let you simplify complex expressions in
+      seconds without expanding everything manually. For example, 997² can be calculated as (1000-3)² =
+      1,000,000 - 6,000 + 9 = 994,009 — much faster than traditional multiplication.
+    </p>
+    <div class="faq-section">
+      <h2 style="margin-bottom:16px;">Algebra Identities — FAQ</h2>
+            {[
+        ['What are math identities?','Math identities are equations that are true for all values of the variables. Unlike equations (true for specific values), identities hold universally. The most fundamental is (a+b)² = a²+2ab+b² — it works for any values of a and b.'],
+        ['What are the algebraic identities for Class 9?','The key algebraic identities for Class 9 CBSE are: (a+b)²=a²+2ab+b², (a-b)²=a²-2ab+b², a²-b²=(a+b)(a-b), (a+b+c)²=a²+b²+c²+2ab+2bc+2ca, (a+b)³=a³+3a²b+3ab²+b³, (a-b)³=a³-3a²b+3ab²-b³, a³+b³=(a+b)(a²-ab+b²), a³-b³=(a-b)(a²+ab+b²).'],
+        ['What is the (a+b)² formula?','(a+b)² = a² + 2ab + b². This is the "square of sum" identity. Example: (3+5)² = 3²+2(3)(5)+5² = 9+30+25 = 64. Alternatively, (3+5)² = 8² = 64. ✓'],
+        ['What is the (a-b)² formula?','(a-b)² = a² - 2ab + b². Example: (7-3)² = 7²-2(7)(3)+3² = 49-42+9 = 16. Check: (7-3)² = 4² = 16. ✓'],
+        ['What is the a²-b² formula?','a²-b² = (a+b)(a-b). This is the "difference of squares" identity. Example: 64-9 = 8²-3² = (8+3)(8-3) = 11×5 = 55. ✓'],
+        ['What is a maths identity?','A maths identity is an equation that holds true for all values of the variables involved. The word "identity" comes from the Latin "idem" meaning "same" — the two sides are always the same value, for any substitution.'],
+        ['What is additive identity in maths?','The additive identity is 0. Adding 0 to any number leaves it unchanged: a + 0 = a for all values of a. Zero is the identity element for addition.'],
+        ['What is multiplicative identity in maths?','The multiplicative identity is 1. Multiplying any number by 1 leaves it unchanged: a × 1 = a for all values of a. One is the identity element for multiplication.'],
+        ['How are algebraic identities used in mental math?','Identities enable rapid calculation. 47² = (50-3)² = 2500-300+9 = 2209 (much faster than direct multiplication). 103×97 = (100+3)(100-3) = 100²-3² = 10000-9 = 9991 (using difference of squares).'],
+        ['What is the difference between an algebraic equation and an identity?','An equation is true for specific values only: x+3=7 is only true when x=4. An identity is true for ALL values: (a+b)²=a²+2ab+b² works for any a and b. In notation, identities sometimes use ≡ (triple bar) to distinguish from equations.'],
+      ].map(([q,a]) => (
+        <div class="faq-item">
+          <div class="faq-q"><span>{q}</span><span class="faq-icon">▾</span></div>
+          <div class="faq-a">{a}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Internal Links -->
+  <div style="background:var(--surface);border:2px solid var(--border);border-radius:var(--radius);padding:24px;margin:32px 0;">
+    <div style="font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;margin-bottom:16px;">📚 Related Topics on MathsIsCool</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <a href="/differentiation" style="background:var(--color-diff);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">d/dx Differentiation →</a>
+      <a href="/integration" style="background:var(--color-integ);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">∫ Integration →</a>
+      <a href="/trigonometry" style="background:var(--color-trig);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">📏 Trigonometry →</a>
+      <a href="/blog/algebra-identities-tricks" style="background:var(--owl-brown);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">📚 Memory Tricks →</a>
+      <a href="/blog/how-to-solve-quadratic-equations" style="background:var(--owl-brown);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">📚 Quadratic Equations →</a>
+    </div>
+  </div>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"What is the difference between an equation and an identity?","acceptedAnswer":{"@type":"Answer","text":"An equation is true only for specific values. An identity is true for all values — like (a+b)²=a²+2ab+b² works for any a and b."}},
+  {"@type":"Question","name":"What is the identity for (a+b+c)²?","acceptedAnswer":{"@type":"Answer","text":"(a+b+c)² = a²+b²+c²+2ab+2bc+2ca. Each pair appears once with coefficient 2."}},
+  {"@type":"Question","name":"What is the binomial theorem?","acceptedAnswer":{"@type":"Answer","text":"The binomial theorem gives the expansion of (a+b)ⁿ for any positive integer n, using coefficients from Pascal's Triangle."}}
+]}
+</script>
+</Layout>

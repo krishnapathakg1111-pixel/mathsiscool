@@ -1,0 +1,366 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  currentPage?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description,
+  canonical = Astro.url.pathname,
+  currentPage = '',
+  ogImage = '/images/og-preview.png',
+} = Astro.props;
+
+const siteUrl = 'https://mathsiscool.com';
+const fullUrl = siteUrl + canonical;
+const fullOgImage = siteUrl + ogImage;
+
+const topicsNav = [
+  { href: '/multiplication-tables', label: 'Times Tables',    key: 'tables',   color: '#7C3AED', emoji: '✖️' },
+  { href: '/squares-cubes',         label: 'Squares & Cubes', key: 'squares',  color: '#2563EB', emoji: '²' },
+  { href: '/square-roots',          label: 'Square Roots',    key: 'roots',    color: '#059669', emoji: '√' },
+  { href: '/algebra-identities',    label: 'Algebra',         key: 'algebra',  color: '#D97706', emoji: '📐' },
+  { href: '/differentiation',       label: 'Differentiation', key: 'diff',     color: '#DC2626', emoji: 'd/dx' },
+  { href: '/integration',           label: 'Integration',     key: 'integ',    color: '#7C3AED', emoji: '∫' },
+  { href: '/trigonometry',          label: 'Trigonometry',    key: 'trig',     color: '#DB2777', emoji: '📏' },
+  { href: '/roman-numerals',        label: 'Roman Numerals',  key: 'roman',    color: '#0891B2', emoji: 'Ⅰ' },
+  { href: '/prime-numbers',         label: 'Prime Numbers',   key: 'prime',    color: '#65A30D', emoji: '🔢' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO -->
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={fullUrl} />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:site_name"   content="MathsIsCool" />
+  <meta property="og:url"         content={fullUrl} />
+  <meta property="og:title"       content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image"       content={fullOgImage} />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt"   content="MathsIsCool — Free Math Tables and Formulas" />
+  <meta property="og:locale"      content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:site"        content="@mathsiscool" />
+  <meta name="twitter:title"       content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image"       content={fullOgImage} />
+  <meta name="twitter:image:alt"   content="MathsIsCool — Free Math Tables and Formulas" />
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+  <!-- Website Schema -->
+  <script type="application/ld+json">
+  {JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "MathsIsCool",
+    "url": "https://mathsiscool.com",
+    "description": "Free math tables, formulas and references for students worldwide",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://mathsiscool.com/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  })}
+  </script>
+
+  <!-- Google Analytics placeholder -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script> -->
+
+  <!-- AdSense placeholder -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+
+  <!-- Fonts — non-blocking load -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Poppins:wght@400;500&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Poppins:wght@400;500&display=swap" /></noscript>
+</head>
+<body>
+
+  <!-- ══ TOP BAR ══ -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <a href="/" class="logo" aria-label="MathsIsCool Home">
+        <picture>
+          <source srcset="/images/owl-logo.webp" type="image/webp" />
+          <img src="/images/owl-logo-opt.png" alt="MathsIsCool owl mascot" class="logo-owl" width="42" height="42" loading="eager" />
+        </picture>
+        <span class="logo-text">Maths<span class="logo-accent">Is</span>Cool</span>
+      </a>
+
+      <div class="search-wrap">
+        <input
+          type="search"
+          id="site-search"
+          placeholder="Search tables, formulas, topics..."
+          class="search-input"
+          autocomplete="off"
+          aria-label="Search MathsIsCool"
+        />
+        <span class="search-icon" aria-hidden="true">🔍</span>
+        <div class="search-results" id="search-results" role="listbox"></div>
+      </div>
+
+      <div class="top-bar-actions">
+        <a href="/blog" class="top-bar-btn" aria-label="Math Articles">📚 Articles</a>
+        <a href="/about" class="top-bar-btn">About</a>
+        <button class="icon-btn" id="theme-btn" aria-label="Toggle dark/light mode">🌙</button>
+        <button class="icon-btn menu-toggle" id="menu-toggle" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TOPICS NAV ══ -->
+  <nav class="topics-nav" id="main-nav" aria-label="Math Topics">
+    <div class="topics-nav-inner">
+      <a href="/" class={`topic-link ${currentPage==='home'?'topic-active':''}`}>🏠 Home</a>
+      {topicsNav.map(n => (
+        <a
+          href={n.href}
+          class={`topic-link ${currentPage===n.key?'topic-active':''}`}
+          style={currentPage===n.key?`--tc:${n.color};background:${n.color}15;color:${n.color};border-bottom:3px solid ${n.color};`:`--tc:${n.color};`}
+          aria-current={currentPage===n.key?'page':undefined}
+        >
+          <span class="topic-emoji" aria-hidden="true">{n.emoji}</span>
+          {n.label}
+        </a>
+      ))}
+    </div>
+  </nav>
+
+  <!-- ══ MOBILE DRAWER ══ -->
+  <div class="mobile-drawer" id="mobile-drawer" role="dialog" aria-label="Navigation menu">
+    <div style="padding:16px;border-bottom:1px solid var(--border);font-family:'Nunito',sans-serif;font-weight:800;color:var(--owl-brown);display:flex;justify-content:space-between;align-items:center;">
+      <span>Menu</span>
+      <button id="drawer-close" class="icon-btn" aria-label="Close menu">✕</button>
+    </div>
+    <a href="/" class="drawer-link">🏠 Home</a>
+    {topicsNav.map(n => (
+      <a href={n.href} class="drawer-link" style={`color:${n.color};`}>
+        {n.emoji} {n.label}
+      </a>
+    ))}
+    <div style="padding:12px 20px;border-top:1px solid var(--border);font-family:'Nunito',sans-serif;font-weight:800;color:var(--owl-brown);font-size:0.85rem;text-transform:uppercase;letter-spacing:0.06em;">More</div>
+    <a href="/blog" class="drawer-link">📚 Math Articles</a>
+    <a href="/about" class="drawer-link">About Us</a>
+    <a href="/contact" class="drawer-link">Contact</a>
+    <a href="/privacy-policy" class="drawer-link">Privacy Policy</a>
+  </div>
+
+  <main id="main-content"><slot /></main>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <picture>
+          <source srcset="/images/owl-main.webp" type="image/webp" />
+          <img src="/images/owl-main-opt.png" alt="MathsIsCool" style="width:64px;height:64px;object-fit:contain;" width="64" height="64" loading="lazy" />
+        </picture>
+        <div class="logo" style="font-size:1.3rem;">Maths<span class="logo-accent">Is</span>Cool</div>
+        <p class="footer-tagline">Your friendly math companion 🦉 — free maths tables, formulas and guides for students worldwide. No signup needed.</p>
+      </div>
+
+      <div class="footer-cols">
+        <div class="footer-col">
+          <div class="footer-col-title">📊 Maths Tables</div>
+          <a href="/multiplication-tables">Multiplication Tables 1–50</a>
+          <a href="/squares-cubes">Squares & Cubes 1–50</a>
+          <a href="/square-roots">Square & Cube Roots</a>
+          <a href="/trigonometry">Trigonometry Table</a>
+          <a href="/prime-numbers">Prime Numbers 1–1000</a>
+          <a href="/roman-numerals">Roman Numerals 1–1000</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">📐 Formulas</div>
+          <a href="/algebra-identities">Algebra Identities</a>
+          <a href="/differentiation">Differentiation Formulas</a>
+          <a href="/integration">Integration Formulas</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">📚 Math Guides</div>
+          <a href="/blog">All Articles</a>
+          <a href="/blog/how-to-learn-multiplication-tables-fast">Learn Times Tables Fast</a>
+          <a href="/blog/times-table-tricks">Times Table Tricks</a>
+          <a href="/blog/sin-cos-tan-explained">Sin Cos Tan Explained</a>
+          <a href="/blog/algebra-identities-tricks">Algebra Identity Tricks</a>
+          <a href="/blog/what-are-prime-numbers">What Are Prime Numbers</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">ℹ️ Info</div>
+          <a href="/about">About Us</a>
+          <a href="/contact">Contact</a>
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/terms">Terms</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; {new Date().getFullYear()} MathsIsCool.com — Free Maths Tables & Formulas for Everyone 🦉</p>
+        <div class="footer-links">
+          <a href="/privacy-policy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="/contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+<script>
+  // ── Theme ──
+  const html = document.documentElement;
+  const saved = localStorage.getItem('mic-theme');
+  if (saved === 'dark') html.classList.add('dark');
+  const themeBtn = document.getElementById('theme-btn');
+  if (themeBtn) {
+    themeBtn.textContent = html.classList.contains('dark') ? '☀️' : '🌙';
+    themeBtn.addEventListener('click', () => {
+      const isDark = html.classList.contains('dark');
+      html.classList.toggle('dark', !isDark);
+      localStorage.setItem('mic-theme', isDark ? 'light' : 'dark');
+      themeBtn.textContent = isDark ? '🌙' : '☀️';
+    });
+  }
+
+  // ── Mobile drawer ──
+  const menuBtn = document.getElementById('menu-toggle');
+  const drawer  = document.getElementById('mobile-drawer');
+  const closeBtn = document.getElementById('drawer-close');
+  const openDrawer  = () => { drawer.classList.add('open'); menuBtn.textContent = '✕'; };
+  const closeDrawer = () => { drawer.classList.remove('open'); menuBtn.textContent = '☰'; };
+  menuBtn?.addEventListener('click', () => drawer.classList.contains('open') ? closeDrawer() : openDrawer());
+  closeBtn?.addEventListener('click', closeDrawer);
+  drawer?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+
+  // ── Search ──
+  const searchData = [
+    {label:'Multiplication Tables 1–50', href:'/multiplication-tables', emoji:'✖️'},
+    {label:'Maths Tables 1 to 20',       href:'/multiplication-tables', emoji:'✖️'},
+    {label:'Times Tables Chart',         href:'/multiplication-tables', emoji:'✖️'},
+    {label:'Table of 2',  href:'/multiplication-tables#table-2',  emoji:'✖️'},
+    {label:'Table of 3',  href:'/multiplication-tables#table-3',  emoji:'✖️'},
+    {label:'Table of 4',  href:'/multiplication-tables#table-4',  emoji:'✖️'},
+    {label:'Table of 5',  href:'/multiplication-tables#table-5',  emoji:'✖️'},
+    {label:'Table of 6',  href:'/multiplication-tables#table-6',  emoji:'✖️'},
+    {label:'Table of 7',  href:'/multiplication-tables#table-7',  emoji:'✖️'},
+    {label:'Table of 8',  href:'/multiplication-tables#table-8',  emoji:'✖️'},
+    {label:'Table of 9',  href:'/multiplication-tables#table-9',  emoji:'✖️'},
+    {label:'Table of 10', href:'/multiplication-tables#table-10', emoji:'✖️'},
+    {label:'Table of 11', href:'/multiplication-tables#table-11', emoji:'✖️'},
+    {label:'Table of 12', href:'/multiplication-tables#table-12', emoji:'✖️'},
+    {label:'Table of 13', href:'/multiplication-tables#table-13', emoji:'✖️'},
+    {label:'Table of 15', href:'/multiplication-tables#table-15', emoji:'✖️'},
+    {label:'Table of 20', href:'/multiplication-tables#table-20', emoji:'✖️'},
+    {label:'Table of 25', href:'/multiplication-tables#table-25', emoji:'✖️'},
+    {label:'Squares and Cubes 1–50',   href:'/squares-cubes',   emoji:'²'},
+    {label:'Perfect Squares List',     href:'/squares-cubes',   emoji:'²'},
+    {label:'Cube Numbers 1 to 30',     href:'/squares-cubes',   emoji:'²'},
+    {label:'Square Root Table',        href:'/square-roots',    emoji:'√'},
+    {label:'Cube Root Table',          href:'/square-roots',    emoji:'√'},
+    {label:'Square Root 1 to 100',     href:'/square-roots',    emoji:'√'},
+    {label:'Cube Roots 1 to 30',       href:'/square-roots',    emoji:'√'},
+    {label:'Square root of 2',         href:'/square-roots',    emoji:'√'},
+    {label:'Square root of 3',         href:'/square-roots',    emoji:'√'},
+    {label:'Square root of 5',         href:'/square-roots',    emoji:'√'},
+    {label:'Cube root of 27',          href:'/square-roots',    emoji:'√'},
+    {label:'Cube root of 64',          href:'/square-roots',    emoji:'√'},
+    {label:'Cube root of 125',         href:'/square-roots',    emoji:'√'},
+    {label:'Algebra Identities',       href:'/algebra-identities', emoji:'📐'},
+    {label:'(a+b)² formula',           href:'/algebra-identities', emoji:'📐'},
+    {label:'(a-b)² formula',           href:'/algebra-identities', emoji:'📐'},
+    {label:'Algebraic Identities Class 9', href:'/algebra-identities', emoji:'📐'},
+    {label:'What is algebra',          href:'/algebra-identities', emoji:'📐'},
+    {label:'Differentiation Formulas', href:'/differentiation',  emoji:'d/dx'},
+    {label:'Differentiation Rules',    href:'/differentiation',  emoji:'d/dx'},
+    {label:'Differentiation in Maths', href:'/differentiation',  emoji:'d/dx'},
+    {label:'Integration Formulas',     href:'/integration',     emoji:'∫'},
+    {label:'Integration by Parts',     href:'/integration',     emoji:'∫'},
+    {label:'Integration Class 12',     href:'/integration',     emoji:'∫'},
+    {label:'Trigonometry Table',       href:'/trigonometry',    emoji:'📏'},
+    {label:'Sin Cos Tan Values',       href:'/trigonometry',    emoji:'📏'},
+    {label:'SOH CAH TOA',              href:'/trigonometry',    emoji:'📏'},
+    {label:'ASTC Rule',                href:'/trigonometry',    emoji:'📏'},
+    {label:'What is trigonometry',     href:'/trigonometry',    emoji:'📏'},
+    {label:'Roman Numerals 1 to 1000', href:'/roman-numerals',  emoji:'Ⅰ'},
+    {label:'Roman number IV',          href:'/roman-numerals',  emoji:'Ⅰ'},
+    {label:'Roman number IX',          href:'/roman-numerals',  emoji:'Ⅰ'},
+    {label:'What is 2024 in Roman numerals', href:'/roman-numerals', emoji:'Ⅰ'},
+    {label:'Prime Numbers 1 to 100',   href:'/prime-numbers',   emoji:'🔢'},
+    {label:'List of Prime Numbers',    href:'/prime-numbers',   emoji:'🔢'},
+    {label:'What are prime numbers',   href:'/prime-numbers',   emoji:'🔢'},
+    {label:'Prime numbers 1 to 1000',  href:'/prime-numbers',   emoji:'🔢'},
+    {label:'Learn Times Tables Fast',  href:'/blog/how-to-learn-multiplication-tables-fast', emoji:'📚'},
+    {label:'Times Table Tricks',       href:'/blog/times-table-tricks', emoji:'📚'},
+    {label:'Sin Cos Tan Explained',    href:'/blog/sin-cos-tan-explained', emoji:'📚'},
+    {label:'Algebra Identity Tricks',  href:'/blog/algebra-identities-tricks', emoji:'📚'},
+    {label:'What Are Prime Numbers',   href:'/blog/what-are-prime-numbers', emoji:'📚'},
+    {label:'Quadratic Equations',      href:'/blog/how-to-solve-quadratic-equations', emoji:'📚'},
+    {label:'Integration by Parts Guide', href:'/blog/integration-by-parts-guide', emoji:'📚'},
+  ];
+
+  const searchInput   = document.getElementById('site-search');
+  const searchResults = document.getElementById('search-results');
+
+  searchInput?.addEventListener('input', () => {
+    const q = searchInput.value.toLowerCase().trim();
+    if (!q || q.length < 2) { searchResults.classList.remove('open'); return; }
+    const matches = searchData.filter(d => d.label.toLowerCase().includes(q)).slice(0, 7);
+    if (!matches.length) { searchResults.classList.remove('open'); return; }
+    searchResults.innerHTML = matches.map(m =>
+      `<a href="${m.href}" class="search-result-item" role="option">
+        <span class="search-emoji" aria-hidden="true">${m.emoji}</span>
+        <span>${m.label}</span>
+      </a>`
+    ).join('');
+    searchResults.classList.add('open');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.search-wrap')) searchResults?.classList.remove('open');
+  });
+
+  searchInput?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      const first = searchResults?.querySelector('a');
+      if (first) window.location.href = (first as HTMLAnchorElement).href;
+    }
+  });
+
+  // ── FAQ ──
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q')?.addEventListener('click', () => item.classList.toggle('open'));
+  });
+</script>
+</html>

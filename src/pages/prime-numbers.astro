@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+function isPrime(n) {
+  if(n<2)return false;if(n===2)return true;if(n%2===0)return false;
+  for(let i=3;i<=Math.sqrt(n);i+=2){if(n%i===0)return false;}return true;
+}
+const primes = Array.from({length:1000},(_,i)=>i+1).filter(isPrime);
+---
+<Layout title="Prime Numbers 1 to 1000 — List, Definition & What Are Prime Numbers | MathsIsCool" description="Prime numbers 1 to 1000 — complete list of 168 primes. What are prime numbers? Prime numbers 1 to 100, prime and composite numbers explained with examples." currentPage="prime">
+<div class="page">
+  <div class="page-hero">
+    <div style="font-size:3rem;margin-bottom:8px;">🔢 🐝</div>
+    <h1 class="c-prime">Prime Numbers 1 to 1000 — List &amp; Definition</h1>
+    <p>All 168 prime numbers from 1 to 1000 — beautifully displayed with patterns and facts!</p>
+    <div class="page-color-bar" style="background:var(--color-prime);"></div>
+  </div>
+  <div class="owl-tip">
+    <picture><source srcset="/images/owl-main.webp" type="image/webp" /><img src="/images/owl-main-opt.png" alt="Professor Hoot" class="owl-tip-img" width="56" height="56" loading="lazy" /></picture>
+    <div class="owl-tip-content">
+      <strong>🦉 Professor Hoot Says:</strong>
+      <p>There are exactly 168 prime numbers between 1 and 1000! Quick check: if a number isn't divisible by 2, 3, 5, 7, 11, 13, 17, 19, 23, or 29 — and it's under 1000 — it's prime! (Because 31²=961 and 37²=1369 > 1000)</p>
+    </div>
+  </div>
+  <div style="background:var(--surface);border:2px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:28px;box-shadow:var(--shadow);">
+    <div style="font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;margin-bottom:6px;">📊 Quick Stats</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-top:12px;">
+      {[
+        {label:'Total Primes (1-1000)',value:'168'},
+        {label:'Largest Prime ≤1000',value:'997'},
+        {label:'Only Even Prime',value:'2'},
+        {label:'Primes 1-100',value:'25'},
+        {label:'Primes 100-200',value:'21'},
+        {label:'Twin Primes ≤100',value:'8 pairs'},
+      ].map(s => (
+        <div style="background:var(--bg-2);border-radius:8px;padding:12px;text-align:center;">
+          <div style="font-family:'Nunito',sans-serif;font-weight:800;font-size:1.2rem;color:var(--color-prime)">{s.value}</div>
+          <div style="font-size:0.75rem;color:var(--text-2);margin-top:2px">{s.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+  <!-- Prime Number Grid -->
+  <h2 style="font-family:'Nunito',sans-serif;font-size:1.2rem;font-weight:900;margin-bottom:16px;">🎯 All Prime Numbers 1 to 1000</h2>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:32px;">
+    {primes.map(p => (
+      <div style="background:var(--color-prime);color:white;border-radius:8px;padding:6px 10px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.88rem;min-width:40px;text-align:center;">
+        {p}
+      </div>
+    ))}
+  </div>
+  <div class="seo-content">
+    <h2>Prime Numbers 1 to 1000 — Everything You Need to Know</h2>
+    <p>A <strong>prime number</strong> is a natural number greater than 1 that has no positive divisors other than 1 and itself. Prime numbers are the "atoms" of mathematics — every whole number greater than 1 can be written as a unique product of primes (Fundamental Theorem of Arithmetic).</p>
+    <h3>How to Check if a Number is Prime</h3>
+    <p>To check if n is prime: test divisibility by all primes up to √n. If none divide evenly, n is prime. For numbers up to 1000, you only need to test primes up to 31 (since 31²=961 and 37²=1369 > 1000).</p>
+    <h3>Interesting Prime Number Facts</h3>
+    <p>2 is the only even prime number. All other primes are odd. Twin primes are pairs differing by 2 (like 11,13 and 17,19). The prime number theorem says primes become less frequent as numbers get larger, but they never stop — there are infinitely many primes.</p>
+    <div class="faq-section">
+      <h2 style="margin-bottom:16px;">Prime Numbers — FAQ</h2>
+            {[
+        ['What are prime numbers?','Prime numbers are natural numbers greater than 1 that have no positive divisors other than 1 and themselves. The first 10 prime numbers are 2, 3, 5, 7, 11, 13, 17, 19, 23, and 29.'],
+        ['Is 1 a prime number?','No. By mathematical definition, prime numbers must be greater than 1. The number 1 has only one factor (itself), while primes require exactly two distinct factors: 1 and themselves.'],
+        ['Are all prime numbers odd?','All prime numbers except 2 are odd. The number 2 is the only even prime number because any other even number is divisible by 2, giving it more than two factors.'],
+        ['How many prime numbers are there between 1 and 100?','There are exactly 25 prime numbers between 1 and 100: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, and 97.'],
+        ['How many prime numbers are there from 1 to 1000?','There are exactly 168 prime numbers from 1 to 1000. The largest prime number below 1000 is 997.'],
+        ['Why is 37 considered a special prime number?','37 is a prime number, and it is often considered "special" because it cannot be divided by 2, 3, 5 (the most common divisors people check). It is also the 12th prime number and appears in many interesting mathematical patterns.'],
+        ['What are the 12 prime numbers in the first 35 numbers?','The primes up to 35 are: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37 — that is 12 primes up to 37.'],
+        ['What is the difference between prime and composite numbers?','A prime number has exactly 2 factors: 1 and itself (e.g. 7 = 1×7 only). A composite number has more than 2 factors (e.g. 12 = 1×12, 2×6, 3×4). The number 1 is neither prime nor composite.'],
+        ['How to find if a number is prime?','To check if n is prime: test divisibility by all primes up to √n. If none divide evenly, n is prime. For numbers up to 1000, test divisibility by 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31 (primes up to √1000 ≈ 31.6).'],
+        ['Why are prime numbers important?','Prime numbers are the building blocks of all integers (Fundamental Theorem of Arithmetic). They are critical in modern cryptography — RSA encryption (used for online banking and HTTPS) relies on the difficulty of factoring large numbers into primes.'],
+        ['Can negative numbers be prime?','No. By definition, prime numbers are natural numbers (positive whole numbers) greater than 1. The concept of primality does not extend to negative numbers.'],
+        ['Are all odd numbers prime?','No! Many odd numbers are composite. For example, 9 = 3×3, 15 = 3×5, 21 = 3×7, 25 = 5×5 are all composite odd numbers. Only odd numbers that have no other factors are prime.'],
+        ['What is prime number in maths?','In maths, a prime number is any natural number greater than 1 whose only factors are 1 and itself. Examples: 2, 3, 5, 7, 11, 13... A number with more factors is called composite.'],
+      ].map(([q,a]) => (
+        <div class="faq-item">
+          <div class="faq-q"><span>{q}</span><span class="faq-icon">▾</span></div>
+          <div class="faq-a">{a}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Internal Links -->
+  <div style="background:var(--surface);border:2px solid var(--border);border-radius:var(--radius);padding:24px;margin:32px 0;">
+    <div style="font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;margin-bottom:16px;">📚 Related Topics on MathsIsCool</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <a href="/multiplication-tables" style="background:var(--color-tables);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">✖️ Times Tables →</a>
+      <a href="/squares-cubes" style="background:var(--color-squares);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">² Squares & Cubes →</a>
+      <a href="/roman-numerals" style="background:var(--color-roman);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">Ⅰ Roman Numerals →</a>
+      <a href="/blog/what-are-prime-numbers" style="background:var(--owl-brown);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">📚 Prime Numbers Guide →</a>
+    </div>
+  </div>
+</div>
+</Layout>

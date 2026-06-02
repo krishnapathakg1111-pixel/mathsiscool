@@ -1,0 +1,172 @@
+---
+import Layout from '../layouts/Layout.astro';
+const angles = [
+  {deg:'0°', rad:'0', sin:'0', cos:'1', tan:'0', cosec:'∞', sec:'1', cot:'∞'},
+  {deg:'30°', rad:'π/6', sin:'1/2', cos:'√3/2', tan:'1/√3', cosec:'2', sec:'2/√3', cot:'√3'},
+  {deg:'45°', rad:'π/4', sin:'1/√2', cos:'1/√2', tan:'1', cosec:'√2', sec:'√2', cot:'1'},
+  {deg:'60°', rad:'π/3', sin:'√3/2', cos:'1/2', tan:'√3', cosec:'2/√3', sec:'2', cot:'1/√3'},
+  {deg:'90°', rad:'π/2', sin:'1', cos:'0', tan:'∞', cosec:'1', sec:'∞', cot:'0'},
+  {deg:'120°', rad:'2π/3', sin:'√3/2', cos:'-1/2', tan:'-√3', cosec:'2/√3', sec:'-2', cot:'-1/√3'},
+  {deg:'135°', rad:'3π/4', sin:'1/√2', cos:'-1/√2', tan:'-1', cosec:'√2', sec:'-√2', cot:'-1'},
+  {deg:'150°', rad:'5π/6', sin:'1/2', cos:'-√3/2', tan:'-1/√3', cosec:'2', sec:'-2/√3', cot:'-√3'},
+  {deg:'180°', rad:'π', sin:'0', cos:'-1', tan:'0', cosec:'∞', sec:'-1', cot:'∞'},
+  {deg:'270°', rad:'3π/2', sin:'-1', cos:'0', tan:'∞', cosec:'-1', sec:'∞', cot:'0'},
+  {deg:'360°', rad:'2π', sin:'0', cos:'1', tan:'0', cosec:'∞', sec:'1', cot:'∞'},
+];
+---
+<Layout title="Trigonometry Table — Sin Cos Tan Values, SOH CAH TOA & ASTC Rule | MathsIsCool" description="Complete trigonometry table with sin cos tan values 0–360°. SOH CAH TOA explained, ASTC rule for quadrants, trig identities. For CBSE, GCSE and A-Level students." currentPage="trig">
+<div class="page">
+  <div class="page-hero">
+    <div style="font-size:3rem;margin-bottom:8px;">📏 🐯</div>
+    <h1 class="c-trig">Trigonometry Table — Sin Cos Tan, SOH CAH TOA &amp; ASTC Rule</h1>
+    <p>Sin, Cos, Tan and all trig ratios from 0° to 360° — exact and decimal values!</p>
+    <div class="page-color-bar" style="background:var(--color-trig);"></div>
+  </div>
+  <div class="owl-tip">
+    <picture><source srcset="/images/owl-main.webp" type="image/webp" /><img src="/images/owl-main-opt.png" alt="Professor Hoot" class="owl-tip-img" width="56" height="56" loading="lazy" /></picture>
+    <div class="owl-tip-content">
+      <strong>🦉 Professor Hoot Says:</strong>
+      <p>Remember "All Students Take Calculus" (ASTC)! In quadrant 1: All positive. Quadrant 2: Sin positive. Quadrant 3: Tan positive. Quadrant 4: Cos positive.</p>
+    </div>
+  </div>
+  <div class="math-table-wrap" style="--table-color: var(--color-trig);">
+    <table class="math-table">
+      <thead>
+        <tr><th>Angle</th><th>Radians</th><th>sin</th><th>cos</th><th>tan</th><th>cosec</th><th>sec</th><th>cot</th></tr>
+      </thead>
+      <tbody>
+        {angles.map(a => (
+          <tr>
+            <td class="num-cell" style="--table-color:var(--color-trig)">{a.deg}</td>
+            <td style="font-size:0.85rem;color:var(--text-2)">{a.rad}</td>
+            <td style="font-weight:700;color:var(--color-trig)">{a.sin}</td>
+            <td style="font-weight:700;color:var(--color-squares)">{a.cos}</td>
+            <td style="font-weight:700;color:var(--color-roots)">{a.tan}</td>
+            <td style="color:var(--text-2);font-size:0.85rem">{a.cosec}</td>
+            <td style="color:var(--text-2);font-size:0.85rem">{a.sec}</td>
+            <td style="color:var(--text-2);font-size:0.85rem">{a.cot}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SOH CAH TOA Section -->
+  <h2 style="font-family:'Nunito',sans-serif;font-size:1.3rem;font-weight:900;margin:36px 0 16px;color:var(--color-trig);">
+    📐 SOH CAH TOA — The Most Important Trig Mnemonic
+  </h2>
+  <p style="color:var(--text-2);font-size:0.9rem;margin-bottom:16px;">
+    <strong>SOH CAH TOA</strong> (pronounced "so-kah-toe-ah") is the mnemonic that unlocks all of basic trigonometry.
+    It tells you the ratio for each trig function in a right-angled triangle:
+  </p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-bottom:24px;">
+    {[
+      {abbr:'SOH', full:'Sin = Opposite ÷ Hypotenuse', color:'#DB2877'},
+      {abbr:'CAH', full:'Cos = Adjacent ÷ Hypotenuse', color:'#2563EB'},
+      {abbr:'TOA', full:'Tan = Opposite ÷ Adjacent',   color:'#059669'},
+    ].map(s => (
+      <div style={`background:${s.color}15;border:2px solid ${s.color}40;border-radius:var(--radius);padding:16px;text-align:center;`}>
+        <div style={`font-family:'Nunito',sans-serif;font-size:2rem;font-weight:900;color:${s.color};margin-bottom:6px;`}>{s.abbr}</div>
+        <div style="font-size:0.85rem;font-family:'Courier New',monospace;">{s.full}</div>
+      </div>
+    ))}
+  </div>
+  <div style="background:var(--surface);border:2px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:28px;">
+    <div style="font-family:'Nunito',sans-serif;font-weight:800;margin-bottom:8px;color:var(--color-trig);">💡 How to remember SOH CAH TOA</div>
+    <p style="font-size:0.88rem;color:var(--text-2);margin-bottom:8px;">
+      Some people remember it as <strong>"Some Old Hippie Caught Another Hippie Tripping On Acid"</strong> —
+      the first letter of each word spells S-O-H-C-A-H-T-O-A. Or simply practise saying
+      <strong>"SOH-CAH-TOA"</strong> out loud 5 times — it sticks instantly.
+    </p>
+    <p style="font-size:0.88rem;color:var(--text-2);margin:0;">
+      <strong>Example:</strong> In a right triangle with angle 30° and hypotenuse = 10:
+      sin(30°) = Opposite/Hypotenuse → 0.5 = Opposite/10 → Opposite = <strong>5</strong>.
+    </p>
+  </div>
+
+  <!-- ASTC Rule Section -->
+  <h2 style="font-family:'Nunito',sans-serif;font-size:1.3rem;font-weight:900;margin:0 0 16px;color:var(--color-trig);">
+    🔄 ASTC Rule — Signs in All Four Quadrants
+  </h2>
+  <p style="color:var(--text-2);font-size:0.9rem;margin-bottom:16px;">
+    The <strong>ASTC rule</strong> tells you which trig ratios are <em>positive</em> in each quadrant of the unit circle.
+    Remember: <strong>"All Students Take Calculus"</strong>
+  </p>
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:24px;max-width:500px;">
+    {[
+      {q:'Q1 (0–90°)',   mnem:'All',      pos:'All ratios positive',       color:'#059669'},
+      {q:'Q2 (90–180°)', mnem:'Students', pos:'Sin (and cosec) positive',  color:'#2563EB'},
+      {q:'Q3 (180–270°)',mnem:'Take',     pos:'Tan (and cot) positive',    color:'#D97706'},
+      {q:'Q4 (270–360°)',mnem:'Calculus', pos:'Cos (and sec) positive',    color:'#DC2626'},
+    ].map(r => (
+      <div style={`background:${r.color}15;border:2px solid ${r.color}40;border-radius:10px;padding:12px;`}>
+        <div style={`font-family:'Nunito',sans-serif;font-weight:800;color:${r.color};font-size:0.9rem;margin-bottom:4px;`}>{r.q}</div>
+        <div style="font-size:0.8rem;font-style:italic;color:var(--text-2);margin-bottom:4px;">"{r.mnem}"</div>
+        <div style="font-size:0.82rem;font-weight:600;">{r.pos}</div>
+      </div>
+    ))}
+  </div>
+  <p style="color:var(--text-2);font-size:0.88rem;margin-bottom:28px;">
+    The ASTC rule is essential for solving trig equations beyond 90°. When you get sin(150°), you
+    know 150° is in Q2 — so sin is positive — and sin(150°) = sin(180°−150°) = sin(30°) = 1/2.
+    See our <a href="/blog/sin-cos-tan-explained">sin cos tan guide</a> for worked examples.
+  </p>
+
+  <!-- Trig Identities Quick Ref -->
+  <h2 style="font-family:'Nunito',sans-serif;font-size:1.2rem;font-weight:900;margin:36px 0 16px;">📐 Key Trigonometric Identities</h2>
+  <div class="formula-grid" style="--formula-color: var(--color-trig);">
+    {[
+      {name:'Pythagorean 1',expr:'sin²θ + cos²θ = 1'},
+      {name:'Pythagorean 2',expr:'1 + tan²θ = sec²θ'},
+      {name:'Pythagorean 3',expr:'1 + cot²θ = cosec²θ'},
+      {name:'Double Angle sin',expr:'sin 2θ = 2 sin θ cos θ'},
+      {name:'Double Angle cos',expr:'cos 2θ = cos²θ - sin²θ'},
+      {name:'Double Angle tan',expr:'tan 2θ = 2tanθ/(1-tan²θ)'},
+      {name:'sin(A+B)',expr:'sin(A+B) = sinA cosB + cosA sinB'},
+      {name:'cos(A+B)',expr:'cos(A+B) = cosA cosB - sinA sinB'},
+    ].map(f => (
+      <div class="formula-card" style="--formula-color:var(--color-trig)">
+        <div class="formula-name">{f.name}</div>
+        <div class="formula-expr">{f.expr}</div>
+      </div>
+    ))}
+  </div>
+  <div class="seo-content">
+    <h2>Trigonometry Table — Sin Cos Tan Values</h2>
+    <p>The trigonometry table gives values of the six trigonometric ratios — sin, cos, tan, cosec, sec, and cot — for standard angles. These values are essential for solving triangles, wave equations, and problems in physics, engineering, and higher mathematics.</p>
+    <h3>How to Remember Trig Values</h3>
+    <p>For sin: use the sequence 0, 1/2, 1/√2, √3/2, 1 for angles 0°, 30°, 45°, 60°, 90°. For cos, the sequence is reversed. For tan = sin/cos. The mnemonic SOH-CAH-TOA helps: Sin=Opposite/Hypotenuse, Cos=Adjacent/Hypotenuse, Tan=Opposite/Adjacent.</p>
+    <div class="faq-section">
+      <h2 style="margin-bottom:16px;">Trigonometry — FAQ</h2>
+            {[
+        ['What is SOH CAH TOA (SOHCAHTOA)?','SOH CAH TOA is the key trigonometry mnemonic: Sin=Opposite/Hypotenuse, Cos=Adjacent/Hypotenuse, Tan=Opposite/Adjacent. Pronounced "so-kah-toe-ah". It is the most important rule for solving right-triangle trig problems.'],
+        ['What is the ASTC rule in trigonometry?','The ASTC rule (All Students Take Calculus) tells you which trig ratios are positive in each quadrant: Q1=All positive, Q2=Sin positive, Q3=Tan positive, Q4=Cos positive. It is essential for solving trig equations beyond 90°.'],
+        ['What is sin 30°, cos 60°, tan 45°?','sin 30° = 1/2, cos 30° = √3/2. cos 60° = 1/2, sin 60° = √3/2. tan 45° = 1. Note: sin 30° = cos 60° and vice versa — this is because 30° and 60° are complementary angles.'],
+        ['What is trigonometry used for?','Trigonometry is used in architecture (calculating heights and angles), navigation (finding direction and distance), physics (wave motion, oscillations), engineering (signal processing), game development (3D graphics), and astronomy. It is one of the most practically applied areas of mathematics.'],
+        ['What is csc (cosec) in trigonometry?','Cosec (csc) is the reciprocal of sin: cosec θ = 1/sin θ = Hypotenuse/Opposite. It is undefined wherever sin = 0, i.e., at 0°, 180°, and 360°.'],
+        ['What is cot in trigonometry?','Cot (cotangent) is the reciprocal of tan: cot θ = cos θ/sin θ = Adjacent/Opposite. It is undefined wherever sin = 0, and equals zero wherever cos = 0.'],
+        ['What is sec in trigonometry?','Sec (secant) is the reciprocal of cos: sec θ = 1/cos θ = Hypotenuse/Adjacent. It is undefined wherever cos = 0, i.e., at 90° and 270°.'],
+        ['What grade is trigonometry taught?','In most school systems, basic trigonometry (SOH CAH TOA, right triangles) is introduced in Grade 9–10 (age 14–15). Advanced trigonometry (unit circle, trig identities, inverse trig) is covered in Grade 11–12 (A-Level, IB HL). In India, trig is part of the CBSE Class 10 and 11 syllabus.'],
+        ['Who invented trigonometry?','Trigonometry was developed by ancient Greek mathematicians. Hipparchus (190–120 BCE) is often called the "father of trigonometry" for creating the first trig table. Indian mathematicians like Aryabhata (5th century CE) further developed the sine function as we know it today.'],
+        ['Is trigonometry hard?','Trigonometry can seem hard at first because of unfamiliar ratios and angle conventions. But with a solid understanding of SOH CAH TOA, the ASTC rule, and the standard angle values (30°, 45°, 60°, 90°), most trig problems become straightforward. Practice with our trig table and worked examples in our sin cos tan guide.'],
+      ].map(([q,a]) => (
+        <div class="faq-item">
+          <div class="faq-q"><span>{q}</span><span class="faq-icon">▾</span></div>
+          <div class="faq-a">{a}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Internal Links -->
+  <div style="background:var(--surface);border:2px solid var(--border);border-radius:var(--radius);padding:24px;margin:32px 0;">
+    <div style="font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;margin-bottom:16px;">📚 Related Topics on MathsIsCool</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <a href="/algebra-identities" style="background:var(--color-algebra);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">📐 Algebra Identities →</a>
+      <a href="/differentiation" style="background:var(--color-diff);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">d/dx Differentiation →</a>
+      <a href="/square-roots" style="background:var(--color-roots);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">√ Square Roots →</a>
+      <a href="/blog/sin-cos-tan-explained" style="background:var(--owl-brown);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">📚 Sin Cos Tan Guide →</a>
+    </div>
+  </div>
+</div>
+</Layout>

@@ -1,0 +1,106 @@
+---
+import Layout from '../layouts/Layout.astro';
+const groups = [
+  { title:'Basic Integrals', color:'#7C3AED', formulas:[
+    {name:'Constant',expr:"∫ a dx = ax + C",note:'a is any constant'},
+    {name:'Power Rule',expr:"∫ xⁿ dx = xⁿ⁺¹/(n+1) + C",note:'Valid for n ≠ -1'},
+    {name:'1/x',expr:"∫ (1/x) dx = ln|x| + C",note:'The case when n = -1'},
+    {name:'eˣ',expr:"∫ eˣ dx = eˣ + C",note:'e^x integrates to itself'},
+    {name:'aˣ',expr:"∫ aˣ dx = aˣ/ln(a) + C",note:'For any base a > 0, a ≠ 1'},
+    {name:'ln x',expr:"∫ ln(x) dx = x·ln(x) - x + C",note:'Use integration by parts'},
+  ]},
+  { title:'Trigonometric Integrals', color:'#DB2777', formulas:[
+    {name:'sin x',expr:"∫ sin x dx = -cos x + C",note:'Note the negative sign'},
+    {name:'cos x',expr:"∫ cos x dx = sin x + C",note:''},
+    {name:'tan x',expr:"∫ tan x dx = ln|sec x| + C",note:'Or -ln|cos x| + C'},
+    {name:'cot x',expr:"∫ cot x dx = ln|sin x| + C",note:''},
+    {name:'sec x',expr:"∫ sec x dx = ln|sec x + tan x| + C",note:''},
+    {name:'cosec x',expr:"∫ cosec x dx = ln|cosec x - cot x| + C",note:''},
+    {name:'sec²x',expr:"∫ sec²x dx = tan x + C",note:'Reverse of d/dx(tan x)'},
+    {name:'cosec²x',expr:"∫ cosec²x dx = -cot x + C",note:''},
+  ]},
+  { title:'Special Forms', color:'#059669', formulas:[
+    {name:'1/√(1-x²)',expr:"∫ 1/√(1-x²) dx = sin⁻¹x + C",note:''},
+    {name:'1/(1+x²)',expr:"∫ 1/(1+x²) dx = tan⁻¹x + C",note:''},
+    {name:'1/√(a²-x²)',expr:"∫ 1/√(a²-x²) dx = sin⁻¹(x/a) + C",note:''},
+    {name:'1/(a²+x²)',expr:"∫ 1/(a²+x²) dx = (1/a)tan⁻¹(x/a) + C",note:''},
+    {name:'√(a²-x²)',expr:"∫ √(a²-x²) dx = (x/2)√(a²-x²) + (a²/2)sin⁻¹(x/a) + C",note:''},
+  ]},
+  { title:'Integration Rules', color:'#D97706', formulas:[
+    {name:'Sum Rule',expr:"∫ [f(x)+g(x)] dx = ∫f(x)dx + ∫g(x)dx",note:'Integral of sum = sum of integrals'},
+    {name:'Constant Multiple',expr:"∫ c·f(x) dx = c ∫f(x)dx",note:'Constants come out of integrals'},
+    {name:'Substitution',expr:"∫ f(g(x))·g'(x) dx = ∫ f(u) du",note:'Where u = g(x) — reverse chain rule'},
+    {name:'By Parts',expr:"∫ u dv = uv - ∫ v du",note:'Use LIATE rule for choosing u: Log, Inverse, Algebraic, Trig, Exp'},
+  ]},
+];
+---
+<Layout title="Integration Formulas — Integration Maths, By Parts & All Rules | MathsIsCool" description="Integration formulas for maths — standard integrals, integration by parts, trig integrals and special forms. Integration Class 12, Class 11, A-Level and university reference." currentPage="integ">
+<div class="page">
+  <div class="page-hero">
+    <div style="font-size:3rem;margin-bottom:8px;">∫ 🦁</div>
+    <h1 class="c-integ">Integration Formulas — Integration Maths &amp; By Parts</h1>
+    <p>Standard integrals, trig integrals, special forms, and integration rules — all in one place!</p>
+    <div class="page-color-bar" style="background:var(--color-integ);"></div>
+  </div>
+  <div class="owl-tip">
+    <picture><source srcset="/images/owl-main.webp" type="image/webp" /><img src="/images/owl-main-opt.png" alt="Professor Hoot" class="owl-tip-img" width="56" height="56" loading="lazy" /></picture>
+    <div class="owl-tip-content">
+      <strong>🦉 Professor Hoot Says:</strong>
+      <p>Integration is the reverse of differentiation. Always add "+C" (constant of integration) for indefinite integrals! The LIATE rule helps choose u in integration by parts: Logarithm, Inverse trig, Algebraic, Trigonometric, Exponential.</p>
+    </div>
+  </div>
+  {groups.map(g => (
+    <div style="margin-bottom:36px;">
+      <h2 style={`font-family:'Nunito',sans-serif;font-size:1.2rem;font-weight:900;color:${g.color};margin-bottom:16px;`}>
+        <span style={`background:${g.color}20;border:2px solid ${g.color}40;border-radius:100px;padding:4px 14px;`}>{g.title}</span>
+      </h2>
+      <div class="formula-grid" style={`--formula-color:${g.color}`}>
+        {g.formulas.map(f => (
+          <div class="formula-card" style={`--formula-color:${g.color}`}>
+            <div class="formula-name">{f.name}</div>
+            <div class="formula-expr">{f.expr}</div>
+            {f.note && <div class="formula-note">💡 {f.note}</div>}
+          </div>
+        ))}
+      </div>
+    </div>
+  ))}
+  <div class="seo-content">
+    <h2>Integration Formulas — Complete Reference Guide</h2>
+    <p>Integration is the reverse process of differentiation and one of the two fundamental operations of calculus. It is used to find areas under curves, volumes of revolution, accumulated change, and solutions to differential equations.</p>
+    <h3>Always Remember +C</h3>
+    <p>The constant of integration +C appears in all indefinite integrals because differentiating any constant gives zero. When you integrate, you lose that constant information — so you must add it back. In definite integrals (with limits), the constants cancel and +C is not written.</p>
+    <div class="faq-section">
+      <h2 style="margin-bottom:16px;">Integration — FAQ</h2>
+            {[
+        ['What is integration in maths?','Integration in maths (calculus) is the process of finding the integral of a function. Geometrically, it represents the area under a curve. It is the reverse of differentiation and a core topic in Class 11, 12, A-Level and university mathematics.'],
+        ['What is ∫1 dx?','∫1 dx = x + C. The integral of the constant 1 with respect to x is simply x, plus the constant of integration C.'],
+        ['What are the types of integration in maths?','The main types are: (1) Indefinite integration — no limits, gives a function plus C. (2) Definite integration — with upper and lower limits, gives a number. (3) Integration by parts — for products of functions. (4) Integration by substitution — reverse chain rule.'],
+        ['What is integration by parts formula?','Integration by parts: ∫u dv = uv − ∫v du. Use the LIATE rule to choose u: Logarithm > Inverse trig > Algebraic > Trigonometric > Exponential. The function earlier in this list is chosen as u.'],
+        ['What is the meaning of integration in maths with example?','Integration finds the accumulated total of a function. Example: if f(x)=2x represents speed, then ∫2x dx = x²+C represents total distance. Definite integral ∫₁³ 2x dx = [x²]₁³ = 9−1 = 8 (total distance from x=1 to x=3).'],
+        ['What is the integral of tan x?','∫tan x dx = ln|sec x| + C, equivalently −ln|cos x| + C. This comes from writing tan x = sin x/cos x and using substitution with u = cos x.'],
+        ['What is integration by substitution?','Substitution (reverse chain rule) uses u=g(x) to simplify ∫f(g(x))·g&#x27;(x) dx into ∫f(u) du. Example: ∫2x·cos(x²) dx — let u=x², du=2x dx → ∫cos(u) du = sin(u)+C = sin(x²)+C.'],
+        ['What is the difference between definite and indefinite integration?','Indefinite integration: no limits, result is a function + C (e.g. ∫x² dx = x³/3 + C). Definite integration: has upper and lower limits, result is a number — the area between the curve and x-axis (e.g. ∫₀² x² dx = [x³/3]₀² = 8/3).'],
+        ['What is integration class 12?','In CBSE Class 12 Maths, integration covers: indefinite integration (standard formulas, substitution, integration by parts), definite integration, properties of definite integrals, and applications (area under curves). It is one of the most important chapters for board exams.'],
+        ['Why do we add +C in integration?','The +C (constant of integration) is added in indefinite integrals because differentiation of any constant gives zero. When we reverse the process (integrate), we lose information about any constant that may have been present, so we add C to represent all possible constants.'],
+      ].map(([q,a]) => (
+        <div class="faq-item">
+          <div class="faq-q"><span>{q}</span><span class="faq-icon">▾</span></div>
+          <div class="faq-a">{a}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Internal Links -->
+  <div style="background:var(--surface);border:2px solid var(--border);border-radius:var(--radius);padding:24px;margin:32px 0;">
+    <div style="font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;margin-bottom:16px;">📚 Related Topics on MathsIsCool</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <a href="/differentiation" style="background:var(--color-diff);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">d/dx Differentiation →</a>
+      <a href="/algebra-identities" style="background:var(--color-algebra);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">📐 Algebra Identities →</a>
+      <a href="/trigonometry" style="background:var(--color-trig);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">📏 Trigonometry →</a>
+      <a href="/blog/integration-by-parts-guide" style="background:var(--owl-brown);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">📚 Integration by Parts →</a>
+    </div>
+  </div>
+</div>
+</Layout>

@@ -1,0 +1,198 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout
+  title="Sin Cos Tan Explained — SOH CAH TOA & ASTC Rule | MathsIsCool"
+  description="Confused about sin, cos and tan? This beginner-friendly guide explains trig ratios with real examples and the SOH-CAH-TOA trick."
+  canonical="/blog/sin-cos-tan-explained"
+>
+<div class="page">
+  <div class="page-hero">
+    <div style="font-size:3rem;margin-bottom:8px;">📏 🐯</div>
+    <h1>Sin, Cos and Tan <span style="color:var(--color-trig)">Explained Simply</span></h1>
+    <p>The beginner's guide to trigonometry — no scary math, just clear explanations with real examples.</p>
+    <div style="display:flex;gap:8px;justify-content:center;margin-top:12px;flex-wrap:wrap;">
+      <span style="background:#DB2877 15;color:#DB2877;border:1px solid #DB287730;font-size:0.78rem;font-weight:700;font-family:'Nunito',sans-serif;padding:3px 12px;border-radius:100px;">⏱️ 7 min read</span>
+      <span style="background:#DB287715;color:#DB2877;border:1px solid #DB287730;font-size:0.78rem;font-weight:700;font-family:'Nunito',sans-serif;padding:3px 12px;border-radius:100px;">Trigonometry</span>
+    </div>
+  </div>
+
+  <div class="owl-tip">
+    <picture><source srcset="/images/owl-main.webp" type="image/webp" /><img src="/images/owl-main-opt.png" alt="Professor Hoot" class="owl-tip-img" width="56" height="56" loading="lazy" /></picture>
+    <div class="owl-tip-content">
+      <strong>🦉 Professor Hoot Says:</strong>
+      <p>Trigonometry sounds scary but it's really just about triangles! Once you understand SOH-CAH-TOA, you've cracked the code for 80% of trig problems.</p>
+    </div>
+  </div>
+
+  <div class="seo-content" style="border-top:none;padding-top:0;">
+
+    <p>
+      If you've just started learning trigonometry, sin, cos, and tan can feel like mysterious abbreviations
+      from another planet. But they're actually very logical — and once you see what they represent, they
+      make perfect sense. Let's break it down completely.
+    </p>
+
+    <h2>What are Sin, Cos, and Tan?</h2>
+    <p>
+      Sin (sine), cos (cosine), and tan (tangent) are <strong>ratios</strong> — they describe the relationship
+      between the sides of a right-angled triangle. Every right-angled triangle has three sides relative to
+      any angle you choose:
+    </p>
+    <div style="background:var(--surface);border:2px solid var(--border);border-radius:var(--radius);padding:20px;margin:16px 0;">
+      {[
+        {side:'Hypotenuse', desc:'The longest side — always opposite the right angle (90°)', color:'#DB2877'},
+        {side:'Opposite', desc:'The side directly opposite your chosen angle', color:'#7C3AED'},
+        {side:'Adjacent', desc:'The side next to your chosen angle (not the hypotenuse)', color:'#2563EB'},
+      ].map(s => (
+        <div style={`padding:10px 0;border-bottom:1px solid var(--border);display:flex;gap:12px;align-items:flex-start;`}>
+          <span style={`background:${s.color};color:white;font-family:'Nunito',sans-serif;font-weight:800;padding:3px 12px;border-radius:100px;font-size:0.8rem;white-space:nowrap;margin-top:2px;`}>{s.side}</span>
+          <span style="font-size:0.9rem;color:var(--text-2);">{s.desc}</span>
+        </div>
+      ))}
+    </div>
+
+    <h2>SOH-CAH-TOA — The Magic Word</h2>
+    <p>
+      <strong>SOH-CAH-TOA</strong> is the most important mnemonic in trigonometry. Say it out loud:
+      "SO-KAH-TOE-AH". It stands for:
+    </p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin:16px 0;">
+      {[
+        {abbr:'SOH', formula:'Sin = Opposite / Hypotenuse', color:'#DB2877'},
+        {abbr:'CAH', formula:'Cos = Adjacent / Hypotenuse', color:'#2563EB'},
+        {abbr:'TOA', formula:'Tan = Opposite / Adjacent', color:'#059669'},
+      ].map(t => (
+        <div style={`background:${t.color}15;border:2px solid ${t.color}40;border-radius:var(--radius);padding:16px;text-align:center;`}>
+          <div style={`font-family:'Nunito',sans-serif;font-size:1.8rem;font-weight:900;color:${t.color};margin-bottom:6px;`}>{t.abbr}</div>
+          <div style="font-family:'Courier New',monospace;font-size:0.85rem;color:var(--text);">{t.formula}</div>
+        </div>
+      ))}
+    </div>
+
+    <h2>A Real Example — Step by Step</h2>
+    <p>
+      Imagine a right-angled triangle where angle A = 30°, and the hypotenuse = 10 cm.
+      Let's find the opposite side (the side across from the 30° angle).
+    </p>
+    <div style="background:var(--surface);border:2px solid var(--border);border-radius:var(--radius);padding:20px;margin:16px 0;font-family:'Courier New',monospace;">
+      <div style="margin-bottom:8px;font-family:'Nunito',sans-serif;font-weight:700;">Step 1: We know angle (30°) and hypotenuse (10). We want opposite.</div>
+      <div style="margin-bottom:8px;">→ Use SOH: sin(30°) = Opposite / Hypotenuse</div>
+      <div style="margin-bottom:8px;color:var(--color-trig);">→ sin(30°) = 0.5 (from our <a href="/trigonometry" style="color:var(--color-trig);">trig table</a>)</div>
+      <div style="margin-bottom:8px;">→ 0.5 = Opposite / 10</div>
+      <div style="font-weight:700;color:var(--color-roots);">→ Opposite = 0.5 × 10 = 5 cm ✅</div>
+    </div>
+
+    <h2>When to Use Sin, Cos, or Tan</h2>
+    <div style="background:var(--surface);border:2px solid var(--border);border-radius:var(--radius);overflow:hidden;margin:16px 0;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+        <thead><tr style="background:var(--color-trig);color:white;">
+          <th style="padding:12px;text-align:left;">You Know</th>
+          <th style="padding:12px;text-align:left;">You Want</th>
+          <th style="padding:12px;text-align:left;">Use</th>
+        </tr></thead>
+        <tbody>
+          {[
+            ['Angle + Hypotenuse','Opposite','SIN'],
+            ['Angle + Hypotenuse','Adjacent','COS'],
+            ['Angle + Adjacent','Opposite','TAN'],
+            ['Opposite + Hypotenuse','The Angle','sin⁻¹ (arcsin)'],
+            ['Adjacent + Hypotenuse','The Angle','cos⁻¹ (arccos)'],
+            ['Opposite + Adjacent','The Angle','tan⁻¹ (arctan)'],
+          ].map(([k,w,u],i) => (
+            <tr style={i%2===0?'background:var(--bg-2)':''}>
+              <td style="padding:10px 12px;">{k}</td>
+              <td style="padding:10px 12px;">{w}</td>
+              <td style="padding:10px 12px;font-weight:700;color:var(--color-trig);">{u}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <h2>The Values You Must Memorize</h2>
+    <p>For standard angles, sin and cos values follow a beautiful pattern. Write these out and stick them on your wall:</p>
+    <div style="background:var(--surface);border:2px solid var(--border);border-radius:var(--radius);overflow:hidden;margin:16px 0;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.9rem;text-align:center;">
+        <thead><tr style="background:var(--color-trig);color:white;">
+          <th style="padding:10px;">Angle</th><th style="padding:10px;">sin</th><th style="padding:10px;">cos</th><th style="padding:10px;">tan</th>
+        </tr></thead>
+        <tbody>
+          {[
+            ['0°','0','1','0'],
+            ['30°','1/2','√3/2','1/√3'],
+            ['45°','1/√2','1/√2','1'],
+            ['60°','√3/2','1/2','√3'],
+            ['90°','1','0','∞'],
+          ].map(([a,s,c,t],i) => (
+            <tr style={i%2===0?'background:var(--bg-2)':''}>
+              <td style="padding:10px;font-weight:700;color:var(--color-trig);">{a}</td>
+              <td style="padding:10px;">{s}</td>
+              <td style="padding:10px;">{c}</td>
+              <td style="padding:10px;">{t}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p>Notice: sin values go 0, 1/2, 1/√2, √3/2, 1 — and cos values are the exact reverse! That's the pattern.</p>
+
+    <h2>Real Life Uses of Sin, Cos, Tan</h2>
+    <p>Trigonometry isn't just for exams — it's everywhere in real life:</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin:16px 0;">
+      {[
+        {icon:'🏗️', use:'Architecture — calculating roof angles and heights'},
+        {icon:'✈️', use:'Navigation — finding direction and distance'},
+        {icon:'🎮', use:'Gaming — 3D graphics use trig constantly'},
+        {icon:'🎵', use:'Sound waves — sin waves describe audio'},
+        {icon:'🌊', use:'Physics — wave motion and oscillations'},
+        {icon:'📡', use:'Engineering — signal processing and antennas'},
+      ].map(r => (
+        <div style="background:var(--surface);border:2px solid var(--border);border-radius:10px;padding:12px;font-size:0.85rem;">
+          <div style="font-size:1.5rem;margin-bottom:6px;">{r.icon}</div>
+          <div style="color:var(--text-2);">{r.use}</div>
+        </div>
+      ))}
+    </div>
+
+    <div class="owl-tip" style="margin-top:32px;">
+      <picture><source srcset="/images/owl-main.webp" type="image/webp" /><img src="/images/owl-main-opt.png" alt="Professor Hoot" class="owl-tip-img" width="56" height="56" loading="lazy" /></picture>
+      <div class="owl-tip-content">
+        <strong>🦉 Practice Makes Perfect!</strong>
+        <p>Check our complete <a href="/trigonometry">trigonometry table</a> with all sin, cos, tan values from 0° to 360° — and the key identities you need for exams.</p>
+      </div>
+    </div>
+
+    <div class="faq-section" style="margin-top:40px;">
+      <h2 style="margin-bottom:16px;">Sin Cos Tan — FAQ</h2>
+      {[
+        ['What does sin mean in math?','Sin (sine) is a trigonometric ratio — it equals the length of the opposite side divided by the length of the hypotenuse in a right-angled triangle.'],
+        ['What is the difference between sin and cos?','Sin uses the opposite side over the hypotenuse. Cos uses the adjacent side over the hypotenuse. They are complementary: sin(x) = cos(90°-x).'],
+        ['What is tan in trigonometry?','Tan (tangent) equals the opposite side divided by the adjacent side. It also equals sin divided by cos: tan(x) = sin(x)/cos(x).'],
+        ['Why is tan 90° undefined?','At 90°, cos = 0. Since tan = sin/cos, we get a division by zero — which is undefined in mathematics.'],
+      ].map(([q,a]) => (
+        <div class="faq-item">
+          <div class="faq-q"><span>{q}</span><span class="faq-icon">▾</span></div>
+          <div class="faq-a">{a}</div>
+        </div>
+      ))}
+    </div>
+
+    <div style="background:var(--surface);border:2px solid var(--border);border-radius:var(--radius);padding:24px;margin-top:32px;text-align:center;">
+      <div style="font-size:2rem;margin-bottom:8px;">📏</div>
+      <div style="font-family:'Nunito',sans-serif;font-weight:800;font-size:1.1rem;margin-bottom:8px;">Ready for the Full Trig Table?</div>
+      <a href="/trigonometry" style="background:var(--color-trig);color:white;padding:10px 24px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:800;text-decoration:none;display:inline-block;">View Full Trig Table →</a>
+    </div>
+  </div>
+
+  <!-- Related Topics — No Orphan Pages -->
+  <div style="background:var(--surface);border:2px solid var(--border);border-radius:var(--radius);padding:24px;margin:32px 0 0;">
+    <div style="font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;margin-bottom:16px;">📚 Related Topics on MathsIsCool</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <a href="/trigonometry" style="background:var(--color-trig);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">📏 Full Trig Table →</a>
+      <a href="/algebra-identities" style="background:var(--color-algebra);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">📐 Algebra Identities →</a>
+      <a href="/differentiation" style="background:var(--color-diff);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">d/dx Differentiation →</a>
+    </div>
+  </div>
+</div>
+</Layout>

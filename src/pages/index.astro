@@ -1,0 +1,258 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const sections = [
+  { href:'/multiplication-tables', emoji:'✖️', animal:'🐰', title:'Multiplication Tables 1–50', desc:'Times tables from 1 to 50 — learn, practise and memorise!', badge:'1 to 50', color:'var(--color-tables)' },
+  { href:'/squares-cubes',         emoji:'²',  animal:'🐻', title:'Squares & Cubes 1–50',      desc:'Perfect squares, cubes and all values in one place.',     badge:'1 to 50', color:'var(--color-squares)' },
+  { href:'/square-roots',          emoji:'√',  animal:'🦊', title:'Square & Cube Roots',        desc:'Square roots and cube roots 1 to 50 with exact values.',   badge:'1 to 50', color:'var(--color-roots)' },
+  { href:'/algebra-identities',    emoji:'📐', animal:'🐸', title:'Algebra Identities',          desc:'Every algebraic identity — factoring, expansion and more.', badge:'Complete', color:'var(--color-algebra)' },
+  { href:'/differentiation',       emoji:'d/dx',animal:'🐼',title:'Differentiation Formulas',   desc:'All standard derivatives — power, trig, log & chain rule.', badge:'Calculus', color:'var(--color-diff)' },
+  { href:'/integration',           emoji:'∫',  animal:'🦁', title:'Integration Formulas',        desc:'Standard integrals, integration by parts and special forms.', badge:'Calculus', color:'var(--color-integ)' },
+  { href:'/trigonometry',          emoji:'📏', animal:'🐯', title:'Trigonometry Table',           desc:'Sin, cos, tan values from 0° to 360° — SOH CAH TOA guide.', badge:'Full Table', color:'var(--color-trig)' },
+  { href:'/roman-numerals',        emoji:'Ⅰ',  animal:'🦋', title:'Roman Numerals 1–1000',       desc:'Complete Roman numeral chart with conversion rules.',       badge:'1 to 1000', color:'var(--color-roman)' },
+  { href:'/prime-numbers',         emoji:'🔢', animal:'🐝', title:'Prime Numbers 1–1000',         desc:'All 168 prime numbers from 1 to 1000 with fun facts.',     badge:'168 Primes', color:'var(--color-prime)' },
+];
+---
+
+<Layout
+  title="Maths Tables — Free Math Tables, Formulas & Reference | MathsIsCool"
+  description="Free maths tables 1 to 50, algebra identities, differentiation, integration, trigonometry table and more. Cool maths reference for students worldwide."
+  currentPage="home"
+>
+
+<!-- Hero -->
+<section class="hero" aria-label="MathsIsCool hero">
+  <div class="speech-bubble">"Maths is everywhere and in everything!" 🦉</div>
+  <picture>
+    <source srcset="/images/owl-main.webp" type="image/webp" />
+    <img src="/images/owl-main-opt.png" alt="Professor Hoot — MathsIsCool mascot" class="hero-owl" width="180" height="180" loading="eager" />
+  </picture>
+  <h1>
+    Cool Maths Made
+    <span style="background:linear-gradient(135deg,#7C3AED,#DB2877);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
+      Fun! 🎉
+    </span>
+  </h1>
+  <p>Free maths tables, formulas and references for students of all ages — from Grade 1 to University. Completely free, forever.</p>
+  <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:8px;">
+    <a href="/multiplication-tables" style="background:var(--color-tables);color:white;padding:12px 24px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;text-decoration:none;">📚 Maths Tables</a>
+    <a href="#topics" style="background:var(--owl-cream);color:var(--owl-brown);padding:12px 24px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;text-decoration:none;border:2px solid var(--border);">🗂️ All Topics</a>
+  </div>
+</section>
+
+<!-- Topics Grid -->
+<div id="topics" class="sections-grid" aria-label="Math topics">
+  {sections.map(s => (
+    <a href={s.href} class="section-card" style={`--card-color: ${s.color}`} aria-label={s.title}>
+      <div class="card-animal" aria-hidden="true">{s.animal}</div>
+      <div class="card-emoji" aria-hidden="true">{s.emoji}</div>
+      <div class="card-title">{s.title}</div>
+      <div class="card-desc">{s.desc}</div>
+      <div class="card-badge">{s.badge}</div>
+    </a>
+  ))}
+</div>
+
+<!-- Why MathsIsCool -->
+<div style="max-width:1100px;margin:0 auto 48px;padding:0 20px;">
+  <div style="background:var(--surface);border:2px solid var(--border);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow);">
+    <h2 style="font-family:'Nunito',sans-serif;font-size:1.5rem;font-weight:900;text-align:center;margin-bottom:24px;">
+      Why Students Love MathsIsCool 🦉❤️
+    </h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;">
+      {[
+        {icon:'🌈', title:'Super Colourful', desc:'Easy on the eyes, hard to forget!'},
+        {icon:'📱', title:'Works on Mobile',  desc:'Study from any device, anywhere.'},
+        {icon:'🆓', title:'100% Free',        desc:'No subscription, no signup ever.'},
+        {icon:'🌍', title:'Global Students',  desc:'Used by students in 100+ countries.'},
+        {icon:'🎯', title:'Exam Ready',        desc:'Covers CBSE, GCSE, SAT & more.'},
+        {icon:'⚡', title:'Super Fast',        desc:'Loads instantly, no waiting.'},
+      ].map(f => (
+        <div style="text-align:center;padding:16px;background:var(--bg-2);border-radius:var(--radius-sm);">
+          <div style="font-size:2rem;margin-bottom:8px;" aria-hidden="true">{f.icon}</div>
+          <div style="font-family:'Nunito',sans-serif;font-weight:800;font-size:0.95rem;margin-bottom:4px;">{f.title}</div>
+          <div style="font-size:0.82rem;color:var(--text-2);">{f.desc}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<!-- Articles Section -->
+<div style="max-width:1100px;margin:0 auto 48px;padding:0 20px;">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
+    <div>
+      <h2 style="font-family:'Nunito',sans-serif;font-size:1.5rem;font-weight:900;margin-bottom:4px;">📚 Read Our Math Guides</h2>
+      <p style="color:var(--text-2);font-size:0.9rem;">Tips, tricks and tutorials from Professor Hoot 🦉</p>
+    </div>
+    <a href="/blog" style="background:var(--owl-brown);color:white;padding:10px 22px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.9rem;text-decoration:none;white-space:nowrap;">All Articles →</a>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;">
+    {[
+      {slug:'how-to-learn-multiplication-tables-fast', emoji:'✖️', color:'#7C3AED', title:'How to Learn Times Tables Fast', desc:'10 proven memory tricks — no boring rote learning!', time:'6 min'},
+      {slug:'times-table-tricks', emoji:'🪄', color:'#059669', title:'Times Table Tricks for Every Table', desc:'Secret tricks for every table from 2 to 15!', time:'7 min'},
+      {slug:'sin-cos-tan-explained', emoji:'📏', color:'#DB2877', title:'Sin, Cos & Tan Explained Simply', desc:'SOH CAH TOA and the ASTC rule made easy.', time:'7 min'},
+      {slug:'what-are-prime-numbers', emoji:'🔢', color:'#65A30D', title:'What Are Prime Numbers?', desc:'A fun, friendly explanation kids will remember.', time:'5 min'},
+      {slug:'algebra-identities-tricks', emoji:'📐', color:'#D97706', title:'Algebra Identities — Memory Tricks', desc:'Stop forgetting formulas in exams!', time:'6 min'},
+      {slug:'how-to-solve-quadratic-equations', emoji:'📐', color:'#D97706', title:'Solve Quadratic Equations', desc:'All 3 methods with full worked examples.', time:'8 min'},
+    ].map(a => (
+      <a href={`/blog/${a.slug}`} style={`text-decoration:none;background:var(--surface);border:2px solid var(--border);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:10px;transition:all 0.2s;border-top:4px solid ${a.color};`}>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-size:1.4rem;" aria-hidden="true">{a.emoji}</span>
+          <span style={`font-size:0.72rem;font-weight:700;font-family:'Nunito',sans-serif;color:${a.color};background:${a.color}15;padding:2px 10px;border-radius:100px;`}>⏱️ {a.time} read</span>
+        </div>
+        <div style="font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;color:var(--text);line-height:1.3;">{a.title}</div>
+        <div style="font-size:0.83rem;color:var(--text-2);line-height:1.5;">{a.desc}</div>
+        <div style={`font-family:'Nunito',sans-serif;font-weight:700;font-size:0.82rem;color:${a.color};margin-top:auto;`}>Read article →</div>
+      </a>
+    ))}
+  </div>
+</div>
+
+<!-- SEO Content — 600+ words covering all homepage keywords -->
+<div style="max-width:900px;margin:0 auto 60px;padding:0 20px;">
+  <div class="seo-content">
+
+    <h2>Free Maths Tables — Your Complete Math Reference</h2>
+    <p>
+      Welcome to <strong>MathsIsCool</strong> — the most complete, colourful and student-friendly
+      <strong>free maths tables</strong> and formula reference on the internet. Whether you are a
+      child learning your first <strong>math tables for kids</strong>, a student preparing for board
+      exams needing <strong>maths tables 1 to 20</strong>, or a university student looking up
+      <strong>differentiation and integration formulas</strong> — you will find everything here,
+      completely free, forever.
+    </p>
+
+    <h3>What Are Maths Tables?</h3>
+    <p>
+      A <strong>maths table</strong> (also called a <strong>mathematics table</strong> or
+      <strong>multiplication table</strong>) is a structured chart showing the products of numbers.
+      The most common are <strong>times tables</strong>, which list the multiples of each number.
+      For example, the table of 5 shows 5×1=5, 5×2=10, 5×3=15, and so on. MathsIsCool provides
+      <strong>maths tables from 1 to 50</strong> — far more than the standard tables you find
+      elsewhere, which typically stop at 12 or 20.
+    </p>
+
+    <h3>How to Learn Maths Tables Easily</h3>
+    <p>
+      <strong>How to learn maths tables fast</strong> is one of the most searched questions by
+      students and parents worldwide. The answer lies in patterns, not rote repetition. Start with
+      the easy tables: 1, 2, 5, 10, and 11 all have obvious patterns. Then use the symmetry rule —
+      since 3×7 = 7×3, learning table of 3 up to 7 automatically gives you the first 3 entries of
+      table of 7. Our dedicated guide on <a href="/blog/how-to-learn-multiplication-tables-fast">how
+      to learn multiplication tables fast</a> covers 10 proven tricks used by top students.
+    </p>
+    <p>
+      For those who want to <strong>learn maths tables in the easy way</strong>, try the visual approach:
+      write each table in a different colour, use the <strong>dodging table</strong> method for
+      random-order practice, or try <strong>Vedic maths tricks</strong> for rapid calculation.
+      Our <a href="/blog/times-table-tricks">times table tricks guide</a> has specific tricks for
+      every table from 2 to 15, including the famous 9s finger trick that kids love.
+    </p>
+
+    <h3>Maths Tables 1 to 20 — Why They Matter</h3>
+    <p>
+      <strong>Maths tables 1 to 20</strong> are the foundation of mental arithmetic. Every competitive
+      exam — CBSE, ICSE, GCSE, SAT, CAT, SSC, Bank PO — tests calculation speed, and knowing your
+      tables fluently saves 15–30 seconds per question. That adds up to dozens of extra marks over
+      a full paper. Our <a href="/multiplication-tables">multiplication tables page</a> covers all
+      tables from 1 to 50, fully coloured and easy to read on any device.
+    </p>
+
+    <h3>Mathematics Table for All Subjects</h3>
+    <p>
+      MathsIsCool isn't just about <strong>multiplication charts</strong>. We cover every type of
+      <strong>mathematics table</strong> a student needs:
+    </p>
+    <ul style="color:var(--text-2);font-size:0.9rem;line-height:2;padding-left:20px;margin-bottom:12px;">
+      <li><a href="/squares-cubes">Squares and cubes table 1 to 50</a> — perfect squares, perfect cubes</li>
+      <li><a href="/square-roots">Square root and cube root table</a> — exact values and decimals</li>
+      <li><a href="/trigonometry">Trigonometry table</a> — sin, cos, tan from 0° to 360°</li>
+      <li><a href="/roman-numerals">Roman numerals table</a> — 1 to 1000 with conversion rules</li>
+      <li><a href="/prime-numbers">Prime numbers chart</a> — all 168 primes from 1 to 1000</li>
+      <li><a href="/algebra-identities">Algebra identities</a> — complete list of algebraic formulas</li>
+      <li><a href="/differentiation">Differentiation formulas</a> — all standard derivatives</li>
+      <li><a href="/integration">Integration formulas</a> — all standard integrals</li>
+    </ul>
+
+    <h3>Cool Maths for Kids and Parents</h3>
+    <p>
+      MathsIsCool was designed with one goal: make <strong>maths fun</strong> and approachable for
+      every student. Our bright colours, friendly mascot Professor Hoot 🦉, and clearly organized
+      pages make mathematics feel less intimidating and more exciting. Parents looking for
+      <strong>maths tables for kids</strong> will find that our colourful design keeps children
+      engaged while the content depth grows with them from primary school through university.
+    </p>
+    <p>
+      Unlike boring PDF worksheets or cluttered old websites, every MathsIsCool page works
+      perfectly on phones and tablets — because students study on their devices. No app to download,
+      no account to create. Just open the page and start learning.
+    </p>
+
+    <h3>How to Read and Use Maths Tables</h3>
+    <p>
+      <strong>How to read maths tables</strong> is simple once you understand the structure. Each
+      row represents one multiplication (e.g. 7×3=21). Read across the row for the multiplied values,
+      or look down a column to see all multiples of a number. For maximum learning, don't just read —
+      test yourself by covering the answers. The <strong>dodging table</strong> method, where questions
+      are asked in random order rather than sequence, builds genuine recall rather than pattern memory.
+    </p>
+
+    <h3>From Primary School to University</h3>
+    <p>
+      MathsIsCool serves students at every level. Primary students use our colourful
+      <a href="/multiplication-tables">times tables chart</a> and <a href="/roman-numerals">Roman
+      numerals guide</a>. Secondary students rely on our <a href="/algebra-identities">algebra
+      identities</a>, <a href="/trigonometry">trigonometry table</a>, and <a href="/squares-cubes">
+      squares and cubes reference</a>. University and A-Level students use our complete
+      <a href="/differentiation">differentiation formulas</a> and <a href="/integration">integration
+      formulas list</a> for quick reference during revision.
+    </p>
+    <p>
+      Whatever stage you are at — MathsIsCool has you covered. Bookmark this page, share it with
+      your classmates, and let Professor Hoot guide you through every mathematical concept you need.
+    </p>
+
+    <!-- FAQ Section -->
+    <div class="faq-section">
+      <h2 style="margin-bottom:16px;">Frequently Asked Questions — Maths Tables</h2>
+      {[
+        ['What are maths tables?','Maths tables (also called multiplication tables or times tables) are structured charts showing the products of numbers multiplied together. For example, the table of 6 shows 6×1=6, 6×2=12, 6×3=18, and so on up to 6×10=60 or beyond.'],
+        ['How many tables are there in maths?','There is no fixed upper limit — maths tables can go up to any number. Standard school curricula cover tables 1 to 12. Competitive exam students benefit from knowing tables 1 to 20 or even 1 to 30. MathsIsCool provides complete maths tables from 1 to 50.'],
+        ['How to learn maths tables quickly?','Start with the pattern tables (2, 5, 10, 11), then use the symmetry rule (3×7=7×3), the 9s finger trick, and the double-double method for 4s (4×n = double of 2×n). Practice in random order (dodging tables) rather than always in sequence.'],
+        ['How to memorize maths tables easily?','Use multi-sense learning: say the table aloud while writing it, use coloured pens for different tables, and test yourself with random flashcard questions. 10 minutes of daily practice beats one long weekly session every time.'],
+        ['What is a dodging table in maths?','A dodging table is a practice method where multiplication questions are asked in random (shuffled) order rather than in sequence. This tests genuine recall rather than pattern memory. For example, instead of 7×1, 7×2, 7×3... the questions come in any order: 7×8, 7×3, 7×6.'],
+        ['What does tables mean in math?','In mathematics, "tables" refers to organized charts displaying mathematical values — most commonly multiplication tables (times tables), but also trigonometry tables, square root tables, prime number charts, and formula reference tables.'],
+        ['How to teach a child maths tables?','Start with the 1, 2, 5, and 10 tables as they have clear patterns. Use songs, rhymes, and colourful charts. Practice for 10 minutes daily rather than long sessions. Use the dodging table method for random-order testing. Reward progress with positive reinforcement.'],
+        ['Who invented maths tables?','Multiplication tables have been used for thousands of years. The earliest known examples come from ancient Babylon (around 2000 BCE). The Babylonians used base-60 multiplication tables on clay tablets. In their modern form, times tables became standardized in schools during the 19th century.'],
+        ['What is a table in mathematics?','In mathematics, a table is an organized arrangement of data in rows and columns. Mathematical tables include multiplication tables, trigonometry tables (sin/cos/tan values), logarithm tables, prime number tables, and formula reference charts.'],
+        ['How to learn maths tables in Vedic maths?','Vedic maths offers several tricks for fast table learning. The base method works well for tables close to 10, 100, etc. For table of 9: 9×n = (n-1) followed by (10-n). For table of 11 up to 9: just double the digit. These shortcuts make calculations dramatically faster.'],
+      ].map(([q,a]) => (
+        <div class="faq-item">
+          <div class="faq-q"><span>{q}</span><span class="faq-icon" aria-hidden="true">▾</span></div>
+          <div class="faq-a">{a}</div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</div>
+
+<script type="application/ld+json">
+{JSON.stringify({
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"What are maths tables?","acceptedAnswer":{"@type":"Answer","text":"Maths tables are structured charts showing the products of numbers multiplied together. MathsIsCool provides complete maths tables from 1 to 50."}},
+    {"@type":"Question","name":"How many tables are there in maths?","acceptedAnswer":{"@type":"Answer","text":"There is no fixed upper limit. Schools typically cover 1 to 12. Competitive exam students benefit from tables 1 to 20 or 1 to 30. MathsIsCool provides tables 1 to 50."}},
+    {"@type":"Question","name":"How to learn maths tables quickly?","acceptedAnswer":{"@type":"Answer","text":"Start with pattern tables (2, 5, 10, 11), use the symmetry rule, the 9s finger trick, and practise in random order (dodging tables method) for 10 minutes daily."}},
+    {"@type":"Question","name":"What is a dodging table in maths?","acceptedAnswer":{"@type":"Answer","text":"A dodging table is a practice method where multiplication questions are asked in random order rather than sequence, building genuine recall rather than pattern memory."}},
+    {"@type":"Question","name":"What does tables mean in math?","acceptedAnswer":{"@type":"Answer","text":"In mathematics, tables are organized charts displaying mathematical values — most commonly multiplication tables, but also trigonometry tables, square root tables, and formula reference charts."}},
+    {"@type":"Question","name":"How to memorize maths tables easily?","acceptedAnswer":{"@type":"Answer","text":"Use multi-sense learning: say tables aloud while writing, use coloured pens, and test yourself with random flashcard questions. 10 minutes of daily practice is more effective than occasional long sessions."}},
+    {"@type":"Question","name":"Who invented maths tables?","acceptedAnswer":{"@type":"Answer","text":"Multiplication tables date to ancient Babylon around 2000 BCE. Babylonians used base-60 multiplication tables on clay tablets. In their modern form, times tables were standardized in schools during the 19th century."}},
+    {"@type":"Question","name":"How to learn maths tables in Vedic maths?","acceptedAnswer":{"@type":"Answer","text":"Vedic maths tricks like the base method and digit patterns (e.g., 9×n = (n-1) followed by (10-n)) make table learning dramatically faster."}}
+  ]
+})}
+</script>
+
+</Layout>

@@ -1,0 +1,140 @@
+---
+import Layout from '../layouts/Layout.astro';
+const nums = Array.from({length: 50}, (_, i) => i + 1);
+---
+<Layout
+  title="Squares and Cubes 1 to 50 — Perfect Squares, Cube Numbers List | MathsIsCool"
+  description="Squares and cubes 1 to 50 — complete table of perfect squares, cube numbers, math squares and cubes. What are perfect squares in math? Difference of squares explained."
+  currentPage="squares"
+>
+<div class="page">
+
+  <div class="page-hero">
+    <div style="font-size:3rem;margin-bottom:8px;">² 🐻</div>
+    <h1 class="c-squares">Squares & Cubes — 1 to 50</h1>
+    <p>Perfect squares, perfect cubes and their values — all in one colorful table!</p>
+    <div class="page-color-bar" style="background:var(--color-squares);"></div>
+  </div>
+
+  <div class="owl-tip">
+    <picture><source srcset="/images/owl-main.webp" type="image/webp" /><img src="/images/owl-main-opt.png" alt="Professor Hoot" class="owl-tip-img" width="56" height="56" loading="lazy" /></picture>
+    <div class="owl-tip-content">
+      <strong>🦉 Professor Hoot Says:</strong>
+      <p>Memorize squares up to 25 and cubes up to 15 — they appear constantly in exams! Notice that 11²=121, 12²=144, 13²=169... the pattern is beautiful once you see it.</p>
+    </div>
+  </div>
+
+  <!-- Main Table -->
+  <div class="math-table-wrap" style="--table-color: var(--color-squares);">
+    <table class="math-table">
+      <thead>
+        <tr>
+          <th>n</th>
+          <th>n² (Square)</th>
+          <th>n³ (Cube)</th>
+          <th>√n (Sq. Root)</th>
+          <th>∛n (Cube Root)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {nums.map(n => (
+          <tr>
+            <td class="num-cell" style="--table-color:var(--color-squares)">{n}</td>
+            <td style="font-weight:700;color:var(--color-squares)">{n*n}</td>
+            <td style="font-weight:700;color:var(--color-tables)">{n*n*n}</td>
+            <td style="color:var(--color-roots)">{Math.sqrt(n).toFixed(3)}</td>
+            <td style="color:var(--color-roots)">{Math.cbrt(n).toFixed(3)}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Perfect Squares Highlight -->
+  <h2 style="font-family:'Nunito',sans-serif;font-size:1.3rem;font-weight:900;margin:36px 0 16px;">
+    ⭐ Perfect Squares (1–50)
+  </h2>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px;">
+    {nums.map(n => (
+      <div style={`background:${n<=25?'var(--color-squares)':'var(--color-squares)30'};color:${n<=25?'white':'var(--color-squares)'};border:2px solid var(--color-squares)${n<=25?'':'40'};border-radius:10px;padding:8px 12px;text-align:center;font-family:'Nunito',sans-serif;font-weight:800;min-width:56px;`}>
+        <div style="font-size:0.75rem;opacity:0.85">{n}²</div>
+        <div style="font-size:1rem">{n*n}</div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Perfect Cubes Highlight -->
+  <h2 style="font-family:'Nunito',sans-serif;font-size:1.3rem;font-weight:900;margin:0 0 16px;">
+    🎲 Perfect Cubes (1–15)
+  </h2>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px;">
+    {Array.from({length:15},(_,i)=>i+1).map(n => (
+      <div style="background:var(--color-tables);color:white;border-radius:10px;padding:8px 14px;text-align:center;font-family:'Nunito',sans-serif;font-weight:800;min-width:64px;">
+        <div style="font-size:0.75rem;opacity:0.85">{n}³</div>
+        <div style="font-size:1rem">{n*n*n}</div>
+      </div>
+    ))}
+  </div>
+
+  <div class="seo-content">
+    <h2>Squares and Cubes 1 to 50 — Why You Need to Know Them</h2>
+    <p>
+      <strong>Perfect squares</strong> are numbers obtained by multiplying an integer by itself: 1, 4, 9, 16, 25, 36...
+      <strong>Perfect cubes</strong> are numbers obtained by multiplying an integer by itself three times: 1, 8, 27, 64, 125...
+      Knowing these by memory transforms exam performance, especially in topics involving roots, equations, and geometry.
+    </p>
+    <h3>Squares 1 to 50 — Key Values to Remember</h3>
+    <p>
+      The most commonly tested squares in competitive exams are from 1 to 30. Squares of numbers ending in 5 follow
+      a special pattern: 15²=225, 25²=625, 35²=1225 — the last two digits are always 25, and the first digits are
+      found by multiplying the tens digit by the next number (1×2=2, 2×3=6, 3×4=12).
+    </p>
+    <h3>Cubes 1 to 50 — Patterns and Tricks</h3>
+    <p>
+      Cubes of numbers ending in 5 always end in 125 (like 5³=125, 15³=3375). Cubes of numbers ending in 1 always end in 1.
+      Cubes of numbers ending in 9 always end in 9. These digit patterns help verify calculations quickly in exams.
+    </p>
+    <div class="faq-section">
+      <h2 style="margin-bottom:16px;">Squares & Cubes — FAQ</h2>
+            {[
+        ['What are perfect squares in math?','Perfect squares are integers that are the result of squaring a whole number: 1(=1²), 4(=2²), 9(=3²), 16(=4²), 25(=5²), 36(=6²), 49(=7²), 64(=8²), 81(=9²), 100(=10²), and so on. Their square roots are exact whole numbers.'],
+        ['What are cube numbers in maths?','Cube numbers are integers that result from cubing a whole number: 1(=1³), 8(=2³), 27(=3³), 64(=4³), 125(=5³), 216(=6³), 343(=7³), 512(=8³), 729(=9³), 1000(=10³).'],
+        ['What is the square of 50?','50² = 50 × 50 = 2,500. Quick method: 50² = (5×10)² = 25×100 = 2,500.'],
+        ['What is the cube of 20?','20³ = 20 × 20 × 20 = 8,000. Quick method: 20³ = (2×10)³ = 8×1000 = 8,000.'],
+        ['What is the square of 25?','25² = 25 × 25 = 625. Pattern: numbers ending in 5 square to end in 25. Method: 25² = (20+5)² = 400+200+25 = 625.'],
+        ['What is perfect cube in maths?','A perfect cube is a number that can be expressed as the cube of an integer. Examples: 8=2³, 27=3³, 64=4³, 125=5³. Perfect cubes are tested frequently in Class 8 CBSE and competitive exams.'],
+        ['What is the difference of squares in maths?','Difference of squares: a²-b² = (a+b)(a-b). Example: 64-9 = 8²-3² = (8+3)(8-3) = 11×5 = 55. This is a key factoring technique used throughout algebra.'],
+        ['How to quickly calculate squares of large numbers?','Use (a+b)² = a²+2ab+b². For 47²: treat as (50-3)² = 2500-300+9 = 2209. Or for 23²: (20+3)² = 400+120+9 = 529. The Vedic maths "Duplex" method also works well for two-digit squaring.'],
+        ['Which numbers are both perfect squares and perfect cubes?','Numbers that are both perfect squares and perfect cubes are 6th powers: 1(=1⁶), 64(=2⁶=4³=8²), 729(=3⁶=9³=27²), 4096(=4⁶=16³=64²). These are called perfect sixth powers.'],
+        ['What is the cube of 4 in maths?','4³ = 4 × 4 × 4 = 64. The cube of 4 is 64.'],
+      ].map(([q,a]) => (
+        <div class="faq-item">
+          <div class="faq-q"><span>{q}</span><span class="faq-icon">▾</span></div>
+          <div class="faq-a">{a}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+
+  <!-- Internal Links -->
+  <div style="background:var(--surface);border:2px solid var(--border);border-radius:var(--radius);padding:24px;margin:32px 0;">
+    <div style="font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;margin-bottom:16px;">📚 Related Topics on MathsIsCool</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <a href="/square-roots" style="background:var(--color-roots);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">√ Square & Cube Roots →</a>
+      <a href="/multiplication-tables" style="background:var(--color-tables);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">✖️ Maths Tables →</a>
+      <a href="/algebra-identities" style="background:var(--color-algebra);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">📐 Algebra Identities →</a>
+      <a href="/blog/how-to-memorize-squares-1-to-30" style="background:var(--owl-brown);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">📚 Memorize Squares →</a>
+    </div>
+  </div>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"What is the square of 50?","acceptedAnswer":{"@type":"Answer","text":"The square of 50 is 50 × 50 = 2,500."}},
+  {"@type":"Question","name":"What is the cube of 20?","acceptedAnswer":{"@type":"Answer","text":"The cube of 20 is 20 × 20 × 20 = 8,000."}},
+  {"@type":"Question","name":"Which numbers are both perfect squares and perfect cubes?","acceptedAnswer":{"@type":"Answer","text":"Numbers that are both perfect squares and perfect cubes are called perfect sixth powers: 1, 64, 729, 4096..."}},
+  {"@type":"Question","name":"How do I quickly calculate squares of large numbers?","acceptedAnswer":{"@type":"Answer","text":"Use (a+b)² = a²+2ab+b². For 47²: treat as (50-3)² = 2500-300+9 = 2209."}}
+]}
+</script>
+</Layout>

@@ -1,0 +1,108 @@
+---
+import Layout from '../layouts/Layout.astro';
+const groups = [
+  { title:'Basic Rules', color:'#DC2626', formulas:[
+    {name:'Constant',expr:"d/dx (c) = 0",note:'Derivative of any constant is zero'},
+    {name:'Power Rule',expr:"d/dx (xⁿ) = nxⁿ⁻¹",note:'Bring power down, reduce power by 1'},
+    {name:'Constant Multiple',expr:"d/dx [c·f(x)] = c·f'(x)",note:'Constants come out of derivatives'},
+    {name:'Sum Rule',expr:"d/dx [f+g] = f'(x) + g'(x)",note:'Derivative of sum = sum of derivatives'},
+    {name:'Difference Rule',expr:"d/dx [f-g] = f'(x) - g'(x)",note:'Derivative of difference = difference of derivatives'},
+    {name:'Product Rule',expr:"d/dx [f·g] = f'g + fg'",note:"Often written as (uv)' = u'v + uv'"},
+    {name:'Quotient Rule',expr:"d/dx [f/g] = (f'g - fg') / g²",note:"d/dx(u/v) = (u'v - uv') / v²"},
+    {name:'Chain Rule',expr:"d/dx [f(g(x))] = f'(g(x))·g'(x)",note:'Differentiate outer × differentiate inner'},
+  ]},
+  { title:'Trigonometric', color:'#DB2777', formulas:[
+    {name:'sin x',expr:"d/dx (sin x) = cos x",note:''},
+    {name:'cos x',expr:"d/dx (cos x) = -sin x",note:'Note the negative sign'},
+    {name:'tan x',expr:"d/dx (tan x) = sec²x",note:''},
+    {name:'cot x',expr:"d/dx (cot x) = -cosec²x",note:''},
+    {name:'sec x',expr:"d/dx (sec x) = sec x · tan x",note:''},
+    {name:'cosec x',expr:"d/dx (cosec x) = -cosec x · cot x",note:''},
+  ]},
+  { title:'Inverse Trig', color:'#7C3AED', formulas:[
+    {name:'sin⁻¹ x',expr:"d/dx (sin⁻¹x) = 1/√(1-x²)",note:'Domain: |x|<1'},
+    {name:'cos⁻¹ x',expr:"d/dx (cos⁻¹x) = -1/√(1-x²)",note:'Note the negative sign'},
+    {name:'tan⁻¹ x',expr:"d/dx (tan⁻¹x) = 1/(1+x²)",note:''},
+    {name:'cot⁻¹ x',expr:"d/dx (cot⁻¹x) = -1/(1+x²)",note:''},
+    {name:'sec⁻¹ x',expr:"d/dx (sec⁻¹x) = 1/(|x|√(x²-1))",note:''},
+    {name:'cosec⁻¹ x',expr:"d/dx (cosec⁻¹x) = -1/(|x|√(x²-1))",note:''},
+  ]},
+  { title:'Exponential & Log', color:'#059669', formulas:[
+    {name:'eˣ',expr:"d/dx (eˣ) = eˣ",note:'e^x is its own derivative — unique property!'},
+    {name:'aˣ',expr:"d/dx (aˣ) = aˣ · ln(a)",note:'For any base a > 0'},
+    {name:'ln x',expr:"d/dx (ln x) = 1/x",note:'Natural log, x > 0'},
+    {name:'logₐ x',expr:"d/dx (logₐx) = 1/(x·ln a)",note:'Log to any base a > 0'},
+  ]},
+];
+---
+<Layout title="Differentiation Formulas — All Rules for Differentiation in Maths | MathsIsCool" description="Differentiation formulas for maths — power rule, chain rule, product rule, quotient rule, trig derivatives, log and exponential. Differentiation in maths for Class 11, 12 and A-Level." currentPage="diff">
+<div class="page">
+  <div class="page-hero">
+    <div style="font-size:3rem;margin-bottom:8px;">d/dx 🐼</div>
+    <h1 class="c-diff">Differentiation Formulas — Rules for Differentiation in Maths</h1>
+    <p>All standard derivatives organized clearly — from basic rules to advanced functions.</p>
+    <div class="page-color-bar" style="background:var(--color-diff);"></div>
+  </div>
+  <div class="owl-tip">
+    <picture><source srcset="/images/owl-main.webp" type="image/webp" /><img src="/images/owl-main-opt.png" alt="Professor Hoot" class="owl-tip-img" width="56" height="56" loading="lazy" /></picture>
+    <div class="owl-tip-content">
+      <strong>🦉 Professor Hoot Says:</strong>
+      <p>Master the Power Rule, Product Rule, Chain Rule and Quotient Rule first — these 4 rules let you differentiate almost anything! The trig and log derivatives come naturally after.</p>
+    </div>
+  </div>
+  {groups.map(g => (
+    <div style="margin-bottom:36px;">
+      <h2 style={`font-family:'Nunito',sans-serif;font-size:1.2rem;font-weight:900;color:${g.color};margin-bottom:16px;`}>
+        <span style={`background:${g.color}20;border:2px solid ${g.color}40;border-radius:100px;padding:4px 14px;`}>{g.title}</span>
+      </h2>
+      <div class="formula-grid" style={`--formula-color:${g.color}`}>
+        {g.formulas.map(f => (
+          <div class="formula-card" style={`--formula-color:${g.color}`}>
+            <div class="formula-name">{f.name}</div>
+            <div class="formula-expr">{f.expr}</div>
+            {f.note && <div class="formula-note">💡 {f.note}</div>}
+          </div>
+        ))}
+      </div>
+    </div>
+  ))}
+  <div class="seo-content">
+    <h2>Differentiation Formulas — Complete Reference</h2>
+    <p>Differentiation is the process of finding the <strong>derivative</strong> of a function — the rate at which the function's value changes with respect to its input. Mastering differentiation formulas is essential for success in AS/A-Level Mathematics, IB HL Mathematics, AP Calculus, and university-level calculus.</p>
+    <h3>The Four Essential Rules</h3>
+    <p><strong>Power Rule:</strong> d/dx(xⁿ) = nxⁿ⁻¹. This single rule handles all polynomial functions. <strong>Product Rule:</strong> (uv)' = u'v + uv'. Use when two functions are multiplied. <strong>Quotient Rule:</strong> (u/v)' = (u'v-uv')/v². Use for fractions of functions. <strong>Chain Rule:</strong> df/dx = df/du × du/dx. Use for composite functions like sin(x²).</p>
+    <div class="faq-section">
+      <h2 style="margin-bottom:16px;">Differentiation — FAQ</h2>
+            {[
+        ['What is differentiation in maths?','Differentiation in maths (calculus) is the process of finding the derivative of a function — the rate at which the function changes with respect to its variable. If y=f(x) represents distance, dy/dx gives speed. It is a core topic in Class 11, 12, A-Level and university mathematics.'],
+        ['What are the 4 basic differentiation rules?','The 4 essential rules are: (1) Power Rule: d/dx(xⁿ)=nxⁿ⁻¹. (2) Product Rule: (uv)&#x27;=u&#x27;v+uv&#x27;. (3) Quotient Rule: (u/v)&#x27;=(u&#x27;v-uv&#x27;)/v². (4) Chain Rule: d/dx[f(g(x))]=f&#x27;(g(x))·g&#x27;(x). Master these four and you can differentiate almost anything.'],
+        ['What is the derivative of sin x?','d/dx(sin x) = cos x. And d/dx(cos x) = -sin x. They cycle: sin → cos → -sin → -cos → sin...'],
+        ['What is the derivative of cos x?','d/dx(cos x) = -sin x. Note the negative sign — this is a common error. The derivative of cos x is negative sin x.'],
+        ['What is the derivative of tan x?','d/dx(tan x) = sec²x. Equivalently, since tan x = sin x/cos x, you can derive this using the quotient rule.'],
+        ['What is the differentiation of log x?','d/dx(ln x) = 1/x. For log base a: d/dx(log_a x) = 1/(x·ln a).'],
+        ['What is the differentiation of eˣ?','d/dx(eˣ) = eˣ. The exponential function eˣ is the unique function that is its own derivative. For aˣ: d/dx(aˣ) = aˣ·ln(a).'],
+        ['What is the differentiation of cube root x?','d/dx(∛x) = d/dx(x^(1/3)) = (1/3)x^(-2/3) = 1/(3x^(2/3)) = 1/(3∛(x²)). Using the power rule with n=1/3.'],
+        ['What is implicit differentiation?','Implicit differentiation is used when y is not explicitly expressed as a function of x. Differentiate both sides with respect to x, treating y as a function of x (applying chain rule when differentiating y terms). Example: x²+y²=25 → 2x+2y(dy/dx)=0 → dy/dx=-x/y.'],
+        ['What is logarithmic differentiation?','Logarithmic differentiation involves taking ln of both sides before differentiating. It is useful for functions of the form y=u^v where both u and v contain x. Take ln: ln y = v·ln u, then differentiate implicitly.'],
+        ['Why is differentiation important?','Differentiation is used to find rates of change, maximum and minimum values of functions (optimization), equations of tangents and normals, velocity from displacement, and is fundamental to physics, engineering, economics, and machine learning.'],
+      ].map(([q,a]) => (
+        <div class="faq-item">
+          <div class="faq-q"><span>{q}</span><span class="faq-icon">▾</span></div>
+          <div class="faq-a">{a}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Internal Links -->
+  <div style="background:var(--surface);border:2px solid var(--border);border-radius:var(--radius);padding:24px;margin:32px 0;">
+    <div style="font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;margin-bottom:16px;">📚 Related Topics on MathsIsCool</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <a href="/integration" style="background:var(--color-integ);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">∫ Integration Formulas →</a>
+      <a href="/algebra-identities" style="background:var(--color-algebra);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">📐 Algebra Identities →</a>
+      <a href="/trigonometry" style="background:var(--color-trig);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">📏 Trigonometry Table →</a>
+      <a href="/blog/differentiation-rules-explained" style="background:var(--owl-brown);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">📚 Rules Explained →</a>
+    </div>
+  </div>
+</div>
+</Layout>

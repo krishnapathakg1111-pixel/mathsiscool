@@ -1,0 +1,146 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const articles = [
+  {
+    slug: 'how-to-learn-multiplication-tables-fast',
+    title: 'How to Learn Multiplication Tables Fast — 10 Proven Tricks',
+    desc: 'Struggling with times tables? These 10 proven memory tricks will help kids and students learn multiplication tables fast — no boring rote learning!',
+    emoji: '✖️',
+    color: '#7C3AED',
+    time: '6 min read',
+    tags: ['Times Tables', 'Memory Tricks', 'Kids'],
+  },
+  {
+    slug: 'how-to-memorize-squares-1-to-30',
+    title: 'How to Memorize Squares 1 to 30 — Tricks & Shortcuts',
+    desc: 'Learn the fastest shortcuts to memorize perfect squares from 1 to 30. Includes the Vedic math trick for squaring numbers ending in 5!',
+    emoji: '²',
+    color: '#2563EB',
+    time: '5 min read',
+    tags: ['Squares', 'Shortcuts', 'Exam Prep'],
+  },
+  {
+    slug: 'sin-cos-tan-explained',
+    title: 'Sin, Cos and Tan Explained Simply — For Beginners',
+    desc: 'Confused about sin, cos and tan? This beginner-friendly guide explains trigonometry ratios with pictures, real examples, and the SOH-CAH-TOA trick.',
+    emoji: '📏',
+    color: '#DB2777',
+    time: '7 min read',
+    tags: ['Trigonometry', 'Beginners', 'GCSE'],
+  },
+  {
+    slug: 'how-to-solve-quadratic-equations',
+    title: 'How to Solve Quadratic Equations — 3 Methods Explained',
+    desc: 'Learn all 3 methods to solve quadratic equations: factoring, completing the square, and the quadratic formula. With worked examples for each method.',
+    emoji: '📐',
+    color: '#D97706',
+    time: '8 min read',
+    tags: ['Algebra', 'Quadratics', 'Step by Step'],
+  },
+  {
+    slug: 'what-are-prime-numbers',
+    title: 'What Are Prime Numbers? — Simple Explanation for Kids',
+    desc: 'What makes a number prime? A simple, friendly explanation of prime numbers with fun facts, examples, and the Sieve of Eratosthenes method.',
+    emoji: '🔢',
+    color: '#65A30D',
+    time: '5 min read',
+    tags: ['Prime Numbers', 'Kids', 'Fun Facts'],
+  },
+  {
+    slug: 'roman-numerals-guide',
+    title: 'Roman Numerals — Complete Beginner Guide with Examples',
+    desc: 'Learn to read and write Roman numerals with this simple step-by-step guide. Includes conversion tricks, common mistakes, and real-world examples.',
+    emoji: 'Ⅰ',
+    color: '#0891B2',
+    time: '6 min read',
+    tags: ['Roman Numerals', 'Beginners', 'Guide'],
+  },
+  {
+    slug: 'algebra-identities-tricks',
+    title: 'Algebra Identities — Tricks to Remember Them All',
+    desc: 'Stop forgetting algebra identities in exams! These clever memory tricks, patterns, and mnemonics make algebraic formulas impossible to forget.',
+    emoji: '🧮',
+    color: '#DC2626',
+    time: '6 min read',
+    tags: ['Algebra', 'Memory Tricks', 'Exam Prep'],
+  },
+  {
+    slug: 'integration-by-parts-guide',
+    title: 'Integration by Parts — When to Use It and How',
+    desc: 'Master integration by parts with the LIATE rule, clear worked examples, and common mistakes to avoid. Perfect for A-Level and university students.',
+    emoji: '∫',
+    color: '#7C3AED',
+    time: '8 min read',
+    tags: ['Calculus', 'Integration', 'University'],
+  },
+  {
+    slug: 'times-table-tricks',
+    title: 'Times Table Tricks — Learn Any Table in Minutes',
+    desc: 'Secret tricks for every times table from 2 to 15. The finger trick for 9s, the mirror trick for 11s, and more — kids love these shortcuts!',
+    emoji: '🪄',
+    color: '#059669',
+    time: '7 min read',
+    tags: ['Times Tables', 'Tricks', 'Kids'],
+  },
+  {
+    slug: 'differentiation-rules-explained',
+    title: 'Differentiation Rules Explained — Power, Product, Chain & Quotient',
+    desc: 'Master the 4 essential differentiation rules with clear worked examples. Power Rule, Product Rule, Chain Rule and Quotient Rule — all explained simply.',
+    emoji: 'd/dx',
+    color: '#DC2626',
+    time: '9 min read',
+    tags: ['Calculus', 'Differentiation', 'A-Level'],
+  },
+];
+---
+
+<Layout
+  title="Maths Articles & Guides — Times Tables, Algebra, Trig & More | MathsIsCool"
+  description="Free maths articles and guides — how to learn times tables fast, algebra identity tricks, sin cos tan explained, prime numbers guide and more. For students of all ages."
+  currentPage="blog"
+>
+
+<div class="page">
+
+  <div class="page-hero">
+    <div style="font-size:3rem;margin-bottom:8px;">📚 🦉</div>
+    <h1>Math <span style="color:var(--owl-brown)">Articles</span> & Guides</h1>
+    <p>Tips, tricks, and tutorials from Professor Hoot — making math fun and easy for everyone!</p>
+    <div class="page-color-bar" style="background:var(--owl-brown);"></div>
+  </div>
+
+  <div class="owl-tip">
+    <picture><source srcset="/images/owl-main.webp" type="image/webp" /><img src="/images/owl-main-opt.png" alt="Professor Hoot" class="owl-tip-img" width="56" height="56" loading="lazy" /></picture>
+    <div class="owl-tip-content">
+      <strong>🦉 Professor Hoot Says:</strong>
+      <p>Reading about math is just as important as doing math! These articles explain the WHY behind the formulas — and once you understand why, you'll never forget how.</p>
+    </div>
+  </div>
+
+  <!-- Articles Grid -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-bottom:60px;">
+    {articles.map(a => (
+      <a
+        href={`/blog/${a.slug}`}
+        style={`--card-color:${a.color};text-decoration:none;`}
+        class="section-card"
+      >
+        <div class="card-emoji" style="font-size:2rem;">{a.emoji}</div>
+        <div class="card-title">{a.title}</div>
+        <div class="card-desc">{a.desc}</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;">
+          {a.tags.map(tag => (
+            <span style={`background:${a.color}15;color:${a.color};border:1px solid ${a.color}30;font-size:0.72rem;font-weight:700;font-family:'Nunito',sans-serif;padding:2px 8px;border-radius:100px;`}>
+              {tag}
+            </span>
+          ))}
+          <span style="margin-left:auto;font-size:0.75rem;color:var(--text-2);">⏱️ {a.time}</span>
+        </div>
+      </a>
+    ))}
+  </div>
+
+</div>
+
+</Layout>
