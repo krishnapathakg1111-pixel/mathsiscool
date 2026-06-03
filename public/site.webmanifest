@@ -1,0 +1,21 @@
+{
+  "name": "MathsIsCool",
+  "short_name": "MathsIsCool",
+  "description": "Free maths tables, formulas and guides for students worldwide",
+  "icons": [
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#FFF8E7",
+  "background_color": "#FFF8E7",
+  "display": "browser",
+  "start_url": "/"
+}
