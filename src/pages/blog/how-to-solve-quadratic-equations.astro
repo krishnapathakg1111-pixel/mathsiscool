@@ -2,104 +2,108 @@
 import Layout from '../../layouts/Layout.astro';
 ---
 <Layout
-  title="How to Solve Quadratic Equations — 3 Methods | MathsIsCool"
-  description="Learn about How to Solve Quadratic Equations — 3 Methods with Professor Hoot. Clear explanations, tricks, and worked examples for students of all ages."
+  title="How to Solve Quadratic Equations — 3 Methods with Examples | MathsIsCool"
+  description="Learn all 3 methods to solve quadratic equations: factoring, quadratic formula, and completing the square. Step-by-step worked examples for Class 10, GCSE and A-Level."
   canonical="/blog/how-to-solve-quadratic-equations"
 >
 <div class="page">
   <div class="page-hero">
     <div style="font-size:3rem;margin-bottom:8px;">📐</div>
-    <h1 style="color:var(--color-algebra)">How to Solve Quadratic Equations — 3 Methods</h1>
-    <p>Clear explanations, smart tricks and worked examples — from Professor Hoot!</p>
+    <h1 style="color:var(--color-algebra)">How to Solve Quadratic Equations</h1>
+    <p>Three methods explained with full worked examples — factoring, quadratic formula, and completing the square.</p>
     <div style="display:flex;gap:8px;justify-content:center;margin-top:12px;flex-wrap:wrap;">
-      <span style="background:#D9770615;color:#D97706;border:1px solid #D9770630;font-size:0.78rem;font-weight:700;font-family:'Nunito',sans-serif;padding:3px 12px;border-radius:100px;">⏱️ 7 min read</span>
-      <span style="background:#D9770615;color:#D97706;border:1px solid #D9770630;font-size:0.78rem;font-weight:700;font-family:'Nunito',sans-serif;padding:3px 12px;border-radius:100px;">Quadratic Equations</span>
+      <span style="background:#D9770615;color:#D97706;border:1px solid #D9770630;font-size:0.78rem;font-weight:700;font-family:'Nunito',sans-serif;padding:3px 12px;border-radius:100px;">⏱️ 8 min read</span>
+      <span style="background:#D9770615;color:#D97706;border:1px solid #D9770630;font-size:0.78rem;font-weight:700;font-family:'Nunito',sans-serif;padding:3px 12px;border-radius:100px;">Algebra</span>
     </div>
   </div>
-
   <div class="owl-tip">
     <picture><source srcset="/images/owl-main.webp" type="image/webp" /><img src="/images/owl-main-opt.png" alt="Professor Hoot" class="owl-tip-img" width="56" height="56" loading="lazy" /></picture>
     <div class="owl-tip-content">
       <strong>🦉 Professor Hoot Says:</strong>
-      <p>Understanding the WHY behind the math is more powerful than memorizing formulas. Let's explore this topic together!</p>
+      <p>Every quadratic equation can be solved — the question is just which method is fastest for that particular equation. Learn all three and choose wisely!</p>
     </div>
   </div>
-
   <div class="seo-content" style="border-top:none;padding-top:0;">
+    <p>A quadratic equation is any equation of the form <strong>ax² + bx + c = 0</strong> where a ≠ 0. Quadratic equations appear throughout mathematics — from projectile motion in physics to profit maximization in economics. There are three main methods to solve them, each suited to different types of equations.</p>
 
-    <p>Welcome to this guide on <strong>How to Solve Quadratic Equations — 3 Methods</strong>. Whether you are a student preparing for exams, a parent helping with homework, or just curious about mathematics — this guide will explain everything clearly with examples and easy-to-remember tricks.</p>
+    <h2>Method 1 — Factoring (Fastest When It Works)</h2>
+    <p>Factoring works when the quadratic can be neatly split into two brackets. It is the fastest method when applicable.</p>
+    <p><strong>Example: Solve x² + 5x + 6 = 0</strong></p>
+    <p>Find two numbers that multiply to give 6 (the constant) and add to give 5 (the coefficient of x). Those numbers are 2 and 3, since 2×3=6 and 2+3=5.</p>
+    <p>So: x² + 5x + 6 = (x + 2)(x + 3) = 0</p>
+    <p>Therefore: x + 2 = 0 → <strong>x = -2</strong>, or x + 3 = 0 → <strong>x = -3</strong></p>
+    <p>When factoring does not work cleanly (no obvious integer pairs), use Method 2 or 3.</p>
 
-    <h2>Why This Matters</h2>
-    <p>Understanding <strong>How to Solve Quadratic Equations — 3 Methods</strong> is essential for success in school mathematics. It appears in exams at every level — from middle school through university — and forms the foundation for more advanced topics in mathematics and science.</p>
-
-    <h2>The Core Concepts</h2>
-    <p>Let's break down the most important things to know. Focus on understanding each idea before moving to the next — building solid foundations step by step is far more effective than trying to memorize everything at once.</p>
-
-    <div style="background:var(--surface);border:2px solid var(--border);border-radius:var(--radius);padding:20px;margin:16px 0;">
-      <div style="font-family:'Nunito',sans-serif;font-weight:800;color:#D97706;margin-bottom:12px;">📋 Quick Reference</div>
-      <p style="font-size:0.9rem;color:var(--text-2);">For the complete reference tables and formulas on this topic, visit our <a href="/algebra-identities" style="color:#D97706;font-weight:700;">dedicated reference page →</a></p>
+    <h2>Method 2 — The Quadratic Formula (Always Works)</h2>
+    <p>The quadratic formula works for <em>any</em> quadratic equation, even when factoring is impossible:</p>
+    <div style="background:var(--surface);border:2px solid var(--color-algebra);border-radius:var(--radius);padding:20px;text-align:center;margin:16px 0;">
+      <div style="font-family:'Courier New',monospace;font-size:1.2rem;font-weight:700;color:var(--color-algebra);">x = (−b ± √(b²−4ac)) / 2a</div>
     </div>
+    <p><strong>Example: Solve 2x² + 3x − 2 = 0</strong></p>
+    <p>Here a=2, b=3, c=−2. Substituting: x = (−3 ± √(9+16)) / 4 = (−3 ± √25) / 4 = (−3 ± 5) / 4</p>
+    <p>x = (−3+5)/4 = 2/4 = <strong>1/2</strong>, or x = (−3−5)/4 = −8/4 = <strong>−2</strong></p>
 
-    <h2>Key Rules and Formulas</h2>
-    <p>Every mathematical topic has a small set of core rules that unlock everything else. Focus on truly understanding these rules rather than just memorizing them — when you understand the logic, the formula becomes obvious.</p>
+    <h2>Method 3 — Completing the Square</h2>
+    <p>Completing the square is used when you need the equation in vertex form, for derivations, or when the quadratic formula is not permitted. It is also how the quadratic formula itself is derived.</p>
+    <p><strong>Example: Solve x² + 6x + 5 = 0 by completing the square</strong></p>
+    <p>Step 1: Move constant to right: x² + 6x = −5</p>
+    <p>Step 2: Add (6/2)² = 9 to both sides: x² + 6x + 9 = 4</p>
+    <p>Step 3: Write left side as a square: (x+3)² = 4</p>
+    <p>Step 4: Square root both sides: x+3 = ±2</p>
+    <p>Therefore: x = −3+2 = <strong>−1</strong>, or x = −3−2 = <strong>−5</strong></p>
 
-    <h2>Worked Examples</h2>
-    <p>The best way to master any mathematical concept is through well-explained worked examples. Work through each one carefully and make sure you understand every step before moving on to the next.</p>
+    <h2>The Discriminant — How Many Solutions?</h2>
+    <p>The expression b²−4ac inside the quadratic formula is called the <strong>discriminant</strong> (symbol: Δ). It tells you how many real solutions exist before you solve:</p>
+    <p>Δ > 0 → Two distinct real solutions | Δ = 0 → One repeated solution | Δ &lt; 0 → No real solutions (complex roots)</p>
 
-    <h2>Common Mistakes to Avoid</h2>
-    <p>Even strong students make predictable mistakes in this area. Knowing what to watch out for can save marks in exams and help you build more reliable mathematical understanding.</p>
+    <h2>Which Method Should You Use?</h2>
+    <p>Use <strong>factoring</strong> first — if you can spot the factors quickly, it is fastest. Use the <strong>quadratic formula</strong> when factoring is not obvious or when coefficients are large. Use <strong>completing the square</strong> when explicitly required by the question or when dealing with inequalities and vertex form.</p>
 
-    <h2>Exam Tips</h2>
-    <p>Regular focused practice of 10–15 minutes per day is far more effective than occasional long study sessions. Use our free reference pages to check your answers and identify any gaps in your knowledge.</p>
+    <h2>More Worked Examples</h2>
+    <h3>Factoring when a is not 1</h3>
+    <p><strong>Solve 2x² + 7x + 3 = 0.</strong> Multiply a × c = 2 × 3 = 6, then find two numbers that multiply to 6 and add to 7: they are 6 and 1. Split the middle term: 2x² + 6x + x + 3 = 2x(x + 3) + 1(x + 3) = (2x + 1)(x + 3). So <strong>x = −1/2</strong> or <strong>x = −3</strong>.</p>
+    <h3>Quadratic formula with an irrational answer</h3>
+    <p><strong>Solve x² − 4x + 1 = 0.</strong> Here a = 1, b = −4, c = 1. Then x = (4 ± √(16 − 4)) / 2 = (4 ± √12) / 2 = (4 ± 2√3) / 2 = <strong>2 ± √3</strong>. This cannot be factored with whole numbers, which is exactly when the formula is useful.</p>
+    <h3>Using the discriminant</h3>
+    <p><strong>Does x² + 2x + 5 = 0 have real solutions?</strong> The discriminant is b² − 4ac = 4 − 20 = −16, which is negative. So there are <strong>no real solutions</strong>.</p>
 
-    <div class="owl-tip" style="margin-top:32px;">
-      <picture><source srcset="/images/owl-main.webp" type="image/webp" /><img src="/images/owl-main-opt.png" alt="Professor Hoot" class="owl-tip-img" width="56" height="56" loading="lazy" /></picture>
-      <div class="owl-tip-content">
-        <strong>🦉 Keep Going!</strong>
-        <p>You are doing great. Head to our <a href="/algebra-identities" style="color:#D97706;">reference page</a> for the complete tables and formulas you need for exams.</p>
-      </div>
-    </div>
+    <h2>Sum and Product of Roots (Shortcut)</h2>
+    <p>For ax² + bx + c = 0 with roots p and q, the sum of the roots is p + q = −b/a and the product is p × q = c/a. Check with x² + 5x + 6 = 0: the roots are −2 and −3, their sum is −5 (which is −b/a) and their product is 6 (which is c/a). This is handy for checking your answers quickly.</p>
 
-    <div class="faq-section" style="margin-top:40px;">
-      <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
-      <div class="faq-item">
-        <div class="faq-q"><span>How do I improve at this topic?</span><span class="faq-icon">▾</span></div>
-        <div class="faq-a">Consistent daily practice of 10-15 minutes is more effective than occasional long sessions. Focus on understanding patterns rather than memorizing individual facts, and use worked examples to build confidence.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><span>Is this topic on school exams?</span><span class="faq-icon">▾</span></div>
-        <div class="faq-a">Yes — this topic appears in CBSE, ICSE, GCSE, A-Level, IB, and most international mathematics curricula. The depth required varies by grade and examination board.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q"><span>Where can I find practice problems?</span><span class="faq-icon">▾</span></div>
-        <div class="faq-a">Our reference pages include examples. For additional practice, your school textbook and past exam papers are excellent resources. Work through problems without looking at solutions first.</div>
-      </div>
+    <h2>Real-Life Example</h2>
+    <p>A ball is thrown upward and its height in metres after t seconds is h = −5t² + 20t. When does it hit the ground again? Set h = 0: −5t² + 20t = 0, so −5t(t − 4) = 0. Therefore t = 0 (when it is thrown) or <strong>t = 4 seconds</strong> (when it lands).</p>
+
+    <h2>Common Mistakes</h2>
+    <p><strong>Not setting the equation to zero first.</strong> Always rewrite so one side is 0 before factoring or using the formula. <strong>Sign errors with b.</strong> If b is negative, then −b becomes positive in the formula. <strong>Dividing by x.</strong> Never divide both sides by x, because you lose the solution x = 0. <strong>Forgetting the ± sign.</strong> A quadratic usually has two answers, not one.</p>
+
+    <h2>Practice Questions</h2>
+    <p>Try each one, then open the answer.</p>
+    <details><summary>1. x² − 7x + 12 = 0</summary><p>Answer: (x − 3)(x − 4) = 0, so x = 3 or x = 4</p></details>
+    <details><summary>2. x² + 4x − 5 = 0</summary><p>Answer: (x + 5)(x − 1) = 0, so x = −5 or x = 1</p></details>
+    <details><summary>3. 3x² − 5x − 2 = 0</summary><p>Answer: (3x + 1)(x − 2) = 0, so x = −1/3 or x = 2</p></details>
+    <details><summary>4. x² − 6x + 9 = 0</summary><p>Answer: (x − 3)² = 0, so x = 3 (one repeated root, discriminant = 0)</p></details>
+    <p>Many quadratics factor neatly using the <a href="/algebra-identities">algebra identities</a>, for example x² − 6x + 9 is (a − b)² and x² − 16 is a² − b². For memory help, see <a href="/blog/algebra-identities-tricks">algebra identity tricks</a>.</p>
+
+    <div class="faq-section" style="margin-top:32px;">
+      <h2 style="margin-bottom:16px;">Quadratic Equations — FAQ</h2>
+      {[
+        ["What is a quadratic equation?","A quadratic equation is an equation of the form ax²+bx+c=0 where a≠0. The highest power of x is 2, which is what makes it quadratic (from Latin quadratus, meaning square)."],
+        ["What is the quadratic formula?","x = (−b ± √(b²−4ac)) / 2a. This formula gives both solutions to any quadratic equation directly."],
+        ["Can a quadratic equation have no solution?","Yes — when the discriminant b²−4ac is negative, there are no real solutions. The equation has two complex (imaginary) solutions instead."],
+        ["What does discriminant mean?","The discriminant is b²−4ac. It tells you the nature of the roots: positive = 2 real roots, zero = 1 repeated root, negative = no real roots."],
+      ].map(([q,a]) => (
+        <div class="faq-item">
+          <div class="faq-q"><span>{q}</span><span class="faq-icon">▾</span></div>
+          <div class="faq-a">{a}</div>
+        </div>
+      ))}
     </div>
 
     <div style="background:var(--surface);border:2px solid var(--border);border-radius:var(--radius);padding:24px;margin-top:32px;text-align:center;">
       <div style="font-size:2rem;margin-bottom:8px;">📐</div>
-      <div style="font-family:'Nunito',sans-serif;font-weight:800;font-size:1.1rem;margin-bottom:16px;">View the Complete Reference</div>
-      <a href="/algebra-identities" style="background:#D97706;color:white;padding:10px 24px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:800;text-decoration:none;display:inline-block;">Go to Reference Page →</a>
-    </div>
-
-  </div>
-
-  <!-- Related Topics — No Orphan Pages -->
-  <div style="background:var(--surface);border:2px solid var(--border);border-radius:var(--radius);padding:24px;margin:32px 0 0;">
-    <div style="font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;margin-bottom:16px;">📚 Related Topics on MathsIsCool</div>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <a href="/algebra-identities" style="background:var(--color-algebra);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">📐 Algebra Identities →</a>
-      <a href="/blog/algebra-identities-tricks" style="background:var(--owl-brown);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">📚 Algebra Tricks →</a>
-      <a href="/differentiation" style="background:var(--color-diff);color:white;padding:8px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;">d/dx Differentiation →</a>
+      <div style="font-family:'Nunito',sans-serif;font-weight:800;font-size:1.1rem;margin-bottom:8px;">See All Algebra Identities</div>
+      <a href="/algebra-identities" style="background:var(--color-algebra);color:white;padding:10px 24px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:800;text-decoration:none;display:inline-block;">Algebra Identities →</a>
     </div>
   </div>
 </div>
-
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-  {"@type":"Question","name":"How do I improve at How to Solve Quadratic Equations — 3 Methods?","acceptedAnswer":{"@type":"Answer","text":"Consistent daily practice of 10-15 minutes is more effective than occasional long sessions. Focus on understanding patterns rather than memorizing facts."}},
-  {"@type":"Question","name":"Is How to Solve Quadratic Equations — 3 Methods on school exams?","acceptedAnswer":{"@type":"Answer","text":"Yes — this topic appears in CBSE, ICSE, GCSE, A-Level, IB and most international mathematics curricula."}}
-]}
-</script>
-
 </Layout>

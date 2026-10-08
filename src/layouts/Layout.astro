@@ -12,13 +12,17 @@ interface Props {
 const {
   title,
   description,
-  canonical = Astro.url.pathname,
+  canonical,
   currentPage = '',
   ogImage = '/images/og-preview.png',
 } = Astro.props;
 
 const siteUrl = 'https://mathsiscool.com';
-const fullUrl = siteUrl + canonical;
+// One canonical format everywhere: no trailing slash (except the homepage).
+// Without this, Astro gives "/page/" which clashes with the sitemap's "/page".
+const rawPath = canonical ?? Astro.url.pathname;
+const cleanPath = rawPath.length > 1 ? rawPath.replace(/\/+$/, '') : rawPath;
+const fullUrl = siteUrl + (cleanPath === '/' ? '/' : cleanPath);
 const fullOgImage = siteUrl + ogImage;
 
 const topicsNav = [
@@ -75,7 +79,7 @@ const topicsNav = [
   <meta name="theme-color" content="#FFF8E7" />
   <!-- Website Schema -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebSite","name":"MathsIsCool","url":"https://mathsiscool.com","description":"Free maths tables, formulas and references for students worldwide","potentialAction":{"@type":"SearchAction","target":"https://mathsiscool.com/?s={search_term_string}","query-input":"required name=search_term_string"}}
+  {"@context":"https://schema.org","@type":"WebSite","name":"MathsIsCool","url":"https://mathsiscool.com","description":"Free maths tables, formulas and references for students worldwide"}
   </script>
 
   <!-- Google Search Console Verification -->

@@ -922,3 +922,19 @@ html.dark .owl-tip-img {
 .owl-tip picture {
   background: transparent;
 }
+
+/* Practice-question answers (click to reveal) */
+.seo-content details {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 16px;
+  margin: 8px 0;
+}
+.seo-content details summary {
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+}
+.seo-content details[open] { border-color: var(--owl-brown); }
+.seo-content details p { margin: 8px 0 0; }

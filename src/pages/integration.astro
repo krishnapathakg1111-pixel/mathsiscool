@@ -70,6 +70,39 @@ const groups = [
     <p>Integration is the reverse process of differentiation and one of the two fundamental operations of calculus. It is used to find areas under curves, volumes of revolution, accumulated change, and solutions to differential equations.</p>
     <h3>Always Remember +C</h3>
     <p>The constant of integration +C appears in all indefinite integrals because differentiating any constant gives zero. When you integrate, you lose that constant information — so you must add it back. In definite integrals (with limits), the constants cancel and +C is not written.</p>
+    <h2>Integration Formulas — Worked Examples</h2>
+    <p>Knowing the formulas is half the job. Here are the most common question types, solved step by step.</p>
+    <h3>Example 1 — Power rule on a polynomial</h3>
+    <p><strong>Find ∫(3x² + 4x − 5) dx.</strong> Integrate each term separately: ∫3x² dx = x³, ∫4x dx = 2x², ∫(−5) dx = −5x. So the answer is <strong>x³ + 2x² − 5x + C</strong>.</p>
+    <h3>Example 2 — Exponential with a constant inside</h3>
+    <p><strong>Find ∫e³ˣ dx.</strong> The inside function 3x has derivative 3, so we divide by 3: <strong>e³ˣ/3 + C</strong>.</p>
+    <h3>Example 3 — Trig with a constant inside</h3>
+    <p><strong>Find ∫sin(2x) dx.</strong> The integral of sin is −cos, and we divide by the inside derivative 2: <strong>−cos(2x)/2 + C</strong>.</p>
+    <h3>Example 4 — Substitution</h3>
+    <p><strong>Find ∫2x(x² + 1)⁴ dx.</strong> Let u = x² + 1, so du = 2x dx. The integral becomes ∫u⁴ du = u⁵/5 + C. Put x back: <strong>(x² + 1)⁵/5 + C</strong>.</p>
+    <h3>Example 5 — Integration by parts</h3>
+    <p><strong>Find ∫x·eˣ dx.</strong> By LIATE, x (algebraic) comes before eˣ (exponential), so u = x and dv = eˣ dx. Then du = dx and v = eˣ. Using ∫u dv = uv − ∫v du: x·eˣ − ∫eˣ dx = <strong>x·eˣ − eˣ + C = eˣ(x − 1) + C</strong>.</p>
+    <h3>Example 6 — Definite integral</h3>
+    <p><strong>Find ∫₀² (x² + 1) dx.</strong> Antiderivative: x³/3 + x. Apply the limits: (8/3 + 2) − (0 + 0) = <strong>14/3</strong>. No +C is needed for definite integrals.</p>
+
+    <h2>Properties of Definite Integrals</h2>
+    <p>These four properties save a lot of time in Class 12 and A-Level exams:</p>
+    <p>1) ∫ₐᵇ f(x) dx = −∫ᵦₐ f(x) dx — swapping the limits flips the sign.</p>
+    <p>2) ∫ₐᵃ f(x) dx = 0 — same upper and lower limit gives zero.</p>
+    <p>3) ∫ₐᵇ f(x) dx = ∫ₐᶜ f(x) dx + ∫ᶜᵇ f(x) dx — you can split the interval at any point c.</p>
+    <p>4) ∫ₐᵇ f(x) dx = ∫ₐᵇ f(a + b − x) dx — useful for tricky symmetric questions.</p>
+
+    <h2>Common Integration Mistakes</h2>
+    <p><strong>Forgetting +C.</strong> Every indefinite integral needs it. <strong>Using the power rule on 1/x.</strong> The rule xⁿ⁺¹/(n+1) fails when n = −1, because it would divide by zero; the answer is ln|x| instead. <strong>Losing the minus sign.</strong> ∫sin x dx = −cos x, but ∫cos x dx = +sin x. <strong>Forgetting the inside derivative.</strong> ∫cos(5x) dx is sin(5x)/5, not sin(5x).</p>
+
+    <h2>Practice Questions</h2>
+    <p>Try these yourself, then open the answer to check.</p>
+    <details><summary>1. ∫(4x³ − 6x) dx</summary><p>Answer: x⁴ − 3x² + C</p></details>
+    <details><summary>2. ∫cos(5x) dx</summary><p>Answer: sin(5x)/5 + C</p></details>
+    <details><summary>3. ∫1/(2x) dx</summary><p>Answer: (1/2)·ln|x| + C</p></details>
+    <details><summary>4. ∫₁⁴ √x dx</summary><p>Answer: [2x^(3/2)/3] from 1 to 4 = (2/3)(8 − 1) = 14/3</p></details>
+    <p>Want to check your differentiation as well? Integration and differentiation undo each other, so use our <a href="/differentiation">differentiation formulas</a> to verify any answer by differentiating it back. For a deeper look at products of functions, read the <a href="/blog/integration-by-parts-guide">integration by parts guide</a>, and for trig integrals see the <a href="/trigonometry">trigonometry table</a>.</p>
+
     <div class="faq-section">
       <h2 style="margin-bottom:16px;">Integration — FAQ</h2>
             {[
